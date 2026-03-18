@@ -54,5 +54,10 @@ HU relacionadas: HU-05, HU-11.
 
 Modulo Vehiculos
 Historia de Usuario: HU-01
-Funcionalidad Registrar vehiculo con tipo asociado
-Actor Administrador de Flota
+Funcionalidad: Registrar vehiculo con tipo asociado
+Actor: Administrador de Flota
+
+Modulo Kilometraje
+Historia de Usuario: HU-04
+Funcionalidad: Registrar y acumular kilometraje
+Actor: Conductor
