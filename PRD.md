@@ -44,67 +44,115 @@ Dolor: No puede reportar de forma rapida el kilometraje de su vehiculo
 Necesidad: Registro rapido del kilometraje
 HU relacionadas: HU-04
 
-### 2.3 Sistema Automatico
+### Sistema Automatico
 Descripcion: Sistema backend que valida datos y genera alertas sin intervención humana.
 HU relacionadas: HU-05, HU-11.
 
 ### Alcance MVP
 
-### 3.1 IN- 8 Historias de Usuario
+### IN- 11 Historias de Usuario
 
-Modulo Vehiculos
-Historia de Usuario: HU-01
-Funcionalidad: Registrar vehiculo con tipo asociado
+Modulo Vehiculos    
+Historia de Usuario: HU-01  
+Funcionalidad: Registrar vehiculo con tipo asociado     
 Actor: Administrador de Flota
 
-Modulo Kilometraje
-Historia de Usuario: HU-04
-Funcionalidad: Registrar y acumular kilometraje
+Modulo Kilometraje  
+Historia de Usuario: HU-04  
+Funcionalidad: Registrar y acumular kilometraje     
 Actor: Conductor
 
-Modulo Kilometraje
-Historia de Usuario: HU-05
-Funcionalidad: validar coherencia del km
+Modulo Kilometraje  
+Historia de Usuario: HU-05  
+Funcionalidad: validar coherencia del km    
 Actor: Sistema
 
-Modulo Kilometraje
-Historia de Usuario: HU-06
-Funcionalidad: Consultar estado de mantenimiento del vehículo
+Modulo Kilometraje  
+Historia de Usuario: HU-06  
+Funcionalidad: Consultar estado de mantenimiento del vehículo   
 Actor: Sistema
 
-
-Modulo Reglas
-Historia de Usuario: HU-07
-Funcionalidad: Crear regla con tipo de mantenimiento
+Modulo Reglas   
+Historia de Usuario: HU-07  
+Funcionalidad: Crear regla con tipo de mantenimiento    
 Actor: Administrador de Flota
 
-Modulo Reglas
-Historia de Usuario: HU-09
-Funcionalidad: Asociar regla a tipo de vehículo
+Modulo Reglas   
+Historia de Usuario: HU-09  
+Funcionalidad: Asociar regla a tipo de vehículo     
 Actor: Administrador de Flota
 
-Modulo Alertas
-Historia de Usuario: HU-11
-Funcionalidad: Generar alerta automática por km
+Modulo Alertas  
+Historia de Usuario: HU-11  
+Funcionalidad: Generar alerta automática por km     
 Actor: Sistema
 
-Modulo Alertas
-Historia de Usuario: HU-12
-Funcionalidad: Consultar y clasificar alertas por estado
+Modulo Alertas  
+Historia de Usuario: HU-12  
+Funcionalidad: Consultar y clasificar alertas por estado    
 Actor: Administrador de Flota
 
-
-Modulo Historial
-Historia de Usuario: HU-13
-Funcionalidad: Registrar mantenimiento realizado
+Modulo Historial    
+Historia de Usuario: HU-13  
+Funcionalidad: Registrar mantenimiento realizado    
 Actor: Administrador de Flota
 
-Modulo Historial
-Historia de Usuario: HU-14
-Funcionalidad: Asociar mantenimiento a regla y resetear contador
+Modulo Historial    
+Historia de Usuario: HU-14  
+Funcionalidad: Asociar mantenimiento a regla y resetear contador    
 Actor: Administrador de Flota
 
-Modulo Historial
-Historia de Usuario: HU-16
-Funcionalidad: Registrar fecha y km del servicio
+Modulo Historial    
+Historia de Usuario: HU-16  
+Funcionalidad: Registrar fecha y km del servicio    
 Actor: Administrador de Flota 
+
+### OUT — Fuera de Alcance
+
+Funcionalidad: Consultar vehículo por placa     
+Razón: Se difiere al Sprint 1, el listado general cubre la necesidad básica 
+
+Funcionalidad: Listar vehículos disponibles     
+Razón: Se difiere al Sprint 1 por alcance del MVP 
+
+Funcionalidad: Consultar reglas         
+Razón: Se difiere al Sprint 1, no bloquea el flujo de creación
+
+Funcionalidad: Modificar reglas     
+Razón: Se difiere al Sprint 1 por alcance del MVP 
+
+Funcionalidad: Obtener historial por placa  
+Razón: Trazabilidad completa para Sprint 1 
+
+Funcionalidad: Generar alerta por tiempo        
+Razón: Requiere lógica de scheduler, complejidad alta para MVP 
+
+Funcionalidad: Eliminar reglas  
+Razón: Riesgo de perder trazabilidad de mantenimientos anteriores 
+
+Funcionalidad: Deshabilitar / habilitar vehículo    
+Razón: No bloquea el flujo preventivo del MVP 
+
+Funcionalidad: Modificar vehículo por placa     
+Razón: MVP prioriza el registro inicial, los datos no son editables por ahora
+
+Funcionalidad: GPS / Telemetría     
+Razón: Requiere integración con hardware externo
+
+Funcionalidad: Gestión de combustible   
+Razón: Módulo independiente, no relacionado al mantenimiento preventivo
+
+Funcionalidad: App móvil nativa     
+Razón: MVP opera como aplicación web 
+
+Funcionalidad: Integración ERP  
+Razón: Depende de adaptadores específicos por cliente 
+
+Funcionalidad: SMS / WhatsApp   
+Razón: MVP no contempla notificaciones externas 
+
+Funcionalidad: Reportes PDF     
+Razón: Funcionalidad de valor agregado para versiones futuras 
+
+Funcionalidad: Multi-tenancy    
+Razón: MVP opera para una sola organización 
