@@ -76,3 +76,8 @@ Modulo Reglas
 Historia de Usuario: HU-09
 Funcionalidad: Asociar regla a tipo de vehículo
 Actor: Administrador de Flota
+
+Modulo Alertas
+Historia de Usuario: HU-11
+Funcionalidad: Generar alerta automática por km
+Actor: Sistema
