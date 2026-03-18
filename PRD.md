@@ -37,3 +37,10 @@ Persona: Carlos - Jefe de operaciones, logistica (25 vehículos)
 Dolor: Revisa excel para saber cuál vehículo necesita servicio. 3 fallas en carretera este año.
 Necesidad: Sistema que le diga qué vehículo necesita mantenimiento y cuándo.
 HU relacionadas: HU-01, HU-07, HU-09, HU-13, HU-14.
+
+### Conductor
+Persona: María' Condutora de reparto
+Dolor: No puede reportar de forma rapida el kilometraje de su vehiculo
+Necesidad: Registro rapido del kilometraje
+HU relacionadas: HU-04
+
