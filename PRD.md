@@ -64,5 +64,10 @@ Actor: Conductor
 
 Modulo Kilometraje
 Historia de Usuario: HU-05
-Funcionalidad: alidar coherencia del km
+Funcionalidad: validar coherencia del km
+Actor: Administrador de Flota
+
+Modulo Reglas
+Historia de Usuario: HU-07
+Funcionalidad: Crear regla con tipo de mantenimiento
 Actor: Administrador de Flota
