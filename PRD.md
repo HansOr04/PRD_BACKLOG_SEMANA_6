@@ -230,3 +230,24 @@ Impacto: Medio
 Al momento de registrar un valor de km si dos condutores mandan al mismo tiempo un valor esto puede perjudicar al registro de cada vehiculo
 Mitigación:
 Se realiza un locking Optimista con el cual si dos usuarios mandan un dato al mismo vehiculo a la vez guarda el primero que entro y despues ingresa nuevamente el otro valor y lo suma al nuevo valor
+
+
+## Riesgos QA
+
+Riesgo: Cobertura insuficiente del motor de reglas
+Mitigacion: Matriz: km variados, umbrales exactos, sin reglas
+
+Riesgo: Escenarios de borde en validación km 
+Mitigacion:Probar: igual, negativo, excesivo
+
+Riesgo:Alertas duplicadas o perdidas 
+Mitigacion:Pruebas de idempotencia del scheduler
+
+Riesgo:Reseteo incorrecto del contador 
+Mitigacion:Verificar cálculo con datos controlados
+
+Riesgo:Clasificación incorrecta de alertas
+Mitigacion:Probar flujo de transiciones PENDING→WARNING→OVERDUE→RESOLVED
+
+Riesgo:Evaluación de estado inconsistente
+Mitigacion:Probar: al día, próximo, vencido, sin reglas, múltiples reglas
