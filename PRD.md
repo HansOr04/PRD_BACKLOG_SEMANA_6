@@ -202,3 +202,19 @@ Impacto: Alto
 Al momento de realizar una consulta o una alerta si no se realiza una optimizacion de la informacion con normalizacion de la base de datos, se podria generar un flujo demasiado lento lo que podria ocasionar fallos      
 Mitigación:
 Se debe realizar querys optimizadas y una evaluacion incremental para estar optimizando cada vez las mismas
+
+- Pérdida de datos  
+Probabilidad: Bajo      
+Impacto: Critico
+Si en algun momento la base de datos se ve comprometida por medidas de seguridad o por ejecuciones de Querys no debidas.       
+Mitigación:
+BackUps diarios debido a la perseveracion de los datos y la integridad de los mismos
+
+- Vulnerabilidades API 
+Probabilidad: Media      
+Impacto: Critico
+Situaciones donde la informacion se puede filtrar o visualizar porque no hay un medio de seguridad aplicado  
+Mitigación:
+Generacion de tokens, roles o validacion de la informacion en inputs para evitar riesgos de seguridad
+
+
