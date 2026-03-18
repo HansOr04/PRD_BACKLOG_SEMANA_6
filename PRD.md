@@ -61,3 +61,8 @@ Modulo Kilometraje
 Historia de Usuario: HU-04
 Funcionalidad: Registrar y acumular kilometraje
 Actor: Conductor
+
+Modulo Kilometraje
+Historia de Usuario: HU-05
+Funcionalidad: alidar coherencia del km
+Actor: Administrador de Flota
