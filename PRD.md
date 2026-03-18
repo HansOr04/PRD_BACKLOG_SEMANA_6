@@ -104,3 +104,7 @@ Historia de Usuario: HU-14
 Funcionalidad: Asociar mantenimiento a regla y resetear contador
 Actor: Administrador de Flota
 
+Modulo Historial
+Historia de Usuario: HU-16
+Funcionalidad: Registrar fecha y km del servicio
+Actor: Administrador de Flota 
