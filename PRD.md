@@ -71,3 +71,8 @@ Modulo Reglas
 Historia de Usuario: HU-07
 Funcionalidad: Crear regla con tipo de mantenimiento
 Actor: Administrador de Flota
+
+Modulo Reglas
+Historia de Usuario: HU-09
+Funcionalidad: Asociar regla a tipo de vehículo
+Actor: Administrador de Flota
