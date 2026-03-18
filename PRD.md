@@ -81,3 +81,8 @@ Modulo Alertas
 Historia de Usuario: HU-11
 Funcionalidad: Generar alerta automática por km
 Actor: Sistema
+
+Modulo Historial
+Historia de Usuario: HU-13
+Funcionalidad: Registrar mantenimiento realizado
+Actor: Administrador de Flota
