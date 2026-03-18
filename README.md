@@ -25,3 +25,13 @@ Rol Dev | Javier Luis | Colombia
 | USER_STORIES.md | 8 HU + Gherkin = Story Points |
 | SUBTASKS.md | Tasking DEV + QA por HU |
 | [Tablero Github Porjects](https://github.com/users/HansOr04/projects/1) | Board público |
+
+## MVP - 8 HU / 31 SP
+
+| Módulo | HU | SP |
+|--------|----|----|
+| Vehículos | HU-01 | 3 |
+| Kilometraje | HU-04, HU-05 | 5 |
+| Reglas | HU-07, HU-09 | 8 |
+| Alertas | HU-11 | 5 |
+| Historail | HU-13, HU-14 | 8 |
