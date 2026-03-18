@@ -185,3 +185,20 @@ Probabilidad: Alta
 Impacto: Medio     
 Al pasar de un proceso manual a uno sistematizado, es probable que conductores y administradores no adopten el sistema de inmediato.        
 Mitigación: Acompañamiento en la migración inicial y capacitación básica de uso.
+
+### Riesgos tecnicos
+
+- Datos inconsistentes de km   
+Probabilidad: Alta      
+Impacto: Alto
+Se tiene que tener en cuenta la importancia de las comas o los puntos al momento de colocar el kilometraje, por que en algunas localidades suele variar al contar decimales o al contar miles        
+Mitigación:
+Necesitamos realizar una validacion estricta que coloque directamente el formato sin que el usuario se preocupe por ello
+
+
+- Planificador lento con flotas grandes   
+Probabilidad: Bajo      
+Impacto: Alto
+Al momento de realizar una consulta o una alerta si no se realiza una optimizacion de la informacion con normalizacion de la base de datos, se podria generar un flujo demasiado lento lo que podria ocasionar fallos      
+Mitigación:
+Se debe realizar querys optimizadas y una evaluacion incremental para estar optimizando cada vez las mismas
