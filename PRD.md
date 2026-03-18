@@ -65,7 +65,13 @@ Actor: Conductor
 Modulo Kilometraje
 Historia de Usuario: HU-05
 Funcionalidad: validar coherencia del km
-Actor: Administrador de Flota
+Actor: Sistema
+
+Modulo Kilometraje
+Historia de Usuario: HU-06
+Funcionalidad: Consultar estado de mantenimiento del vehículo
+Actor: Sistema
+
 
 Modulo Reglas
 Historia de Usuario: HU-07
@@ -81,6 +87,9 @@ Modulo Alertas
 Historia de Usuario: HU-11
 Funcionalidad: Generar alerta automática por km
 Actor: Sistema
+
+
+
 
 Modulo Historial
 Historia de Usuario: HU-13
