@@ -44,3 +44,6 @@ Dolor: No puede reportar de forma rapida el kilometraje de su vehiculo
 Necesidad: Registro rapido del kilometraje
 HU relacionadas: HU-04
 
+### 2.3 Sistema Automatico
+Descripcion: Sistema backend que valida datos y genera alertas sin intervención humana.
+HU relacionadas: HU-05, HU-11.
