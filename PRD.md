@@ -23,3 +23,9 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 4. Generar alertas automáticas cuando un vehículo alcance el límite de kilometraje definido en una regla, previniendo retrasos en el mantenimiento que pueden derivar en multas o accidentes.
 5. Registrar el historial de mantenimiento realizados por el vehículo, incluyendo la fecha, el kilometraje del servicio y la regla que lo originó.
 6. Reducir costos opertativos con relación a los mantenimientos fuera de tiempo, por medio de intervenciones preventivas planificadas con base en datos reales. 
+
+## Métrica de Éxito
+- El 100% de los vehículos registrados deben tener como mínimo placa, modelo y tipo asociado.
+- Cada vehículo debe reportar su kilometraje, máximo 48 horas luego de efectuarse el recorrido.
+- La mayoría de los mantenimientos deben hacerse antes de que el vehículo llegue al límite definido, generar una efectividad de un 90% antes de tiempo.
+- Reducir en un 30% los daños y accidentes inesperados gracias al mantenimiento preventivo.
