@@ -51,3 +51,8 @@ HU relacionadas: HU-05, HU-11.
 ### Alcance MVP
 
 ### 3.1 IN- 8 Historias de Usuario
+
+Modulo Vehiculos
+Historia de Usuario: HU-01
+Funcionalidad Registrar vehiculo con tipo asociado
+Actor Administrador de Flota
