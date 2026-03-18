@@ -16,3 +16,12 @@ Rol Dev | Javier Luis | Colombia
 | Administrador de flota | HU-01, HU-07, HU-09, HU-13, HU-14 |
 | Conductor | HU-04 |
 | Sistema automático | HU-05, HU-11 |
+
+## Entregables 
+
+| Archivo | Descripción |
+|-------|----|
+| PRD.md | Visión, alcance MVP, riesgos |
+| USER_STORIES.md | 8 HU + Gherkin = Story Points |
+| SUBTASKS.md | Tasking DEV + QA por HU |
+| [Tablero Github Porjects](https://github.com/users/HansOr04/projects/1) | Board público |
