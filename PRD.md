@@ -88,7 +88,10 @@ Historia de Usuario: HU-11
 Funcionalidad: Generar alerta automática por km
 Actor: Sistema
 
-
+Modulo Alertas
+Historia de Usuario: HU-12
+Funcionalidad: Consultar y clasificar alertas por estado
+Actor: Administrador de Flota
 
 
 Modulo Historial
@@ -100,3 +103,4 @@ Modulo Historial
 Historia de Usuario: HU-14
 Funcionalidad: Asociar mantenimiento a regla y resetear contador
 Actor: Administrador de Flota
+
