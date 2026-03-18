@@ -86,3 +86,8 @@ Modulo Historial
 Historia de Usuario: HU-13
 Funcionalidad: Registrar mantenimiento realizado
 Actor: Administrador de Flota
+
+Modulo Historial
+Historia de Usuario: HU-14
+Funcionalidad: Asociar mantenimiento a regla y resetear contador
+Actor: Administrador de Flota
