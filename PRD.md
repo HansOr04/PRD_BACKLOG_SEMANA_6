@@ -217,4 +217,16 @@ Situaciones donde la informacion se puede filtrar o visualizar porque no hay un 
 Mitigación:
 Generacion de tokens, roles o validacion de la informacion en inputs para evitar riesgos de seguridad
 
+- Alertas falsas por reglas mal configuradas
+Probabilidad: Media      
+Impacto: Alto
+Al generar una alerta por no realizar bien el analisis de lo que se necesita puede dar falsos positivos  
+Mitigación:
+Es un testing exhaustivo con las reglas de negocio para poder validar cada una de estas, ademas de una UI intuitiva que no genere ambiguedad al momento de colocar la regla
 
+- Race conditions en registro concurrente km
+Probabilidad: Bajo      
+Impacto: Medio
+Al momento de registrar un valor de km si dos condutores mandan al mismo tiempo un valor esto puede perjudicar al registro de cada vehiculo
+Mitigación:
+Se realiza un locking Optimista con el cual si dos usuarios mandan un dato al mismo vehiculo a la vez guarda el primero que entro y despues ingresa nuevamente el otro valor y lo suma al nuevo valor
