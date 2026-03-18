@@ -35,3 +35,12 @@ Rol Dev | Javier Luis | Colombia
 | Reglas | HU-07, HU-09 | 8 |
 | Alertas | HU-11 | 5 |
 | Historail | HU-13, HU-14 | 8 |
+
+## Convenciones de Commits 
+
+```
+feat(prd): add vision and objectives
+feat(backlog): add HU-01 vehicle registration
+feat(gherkin): add scenarios for HU-05
+docs(tasking): add subtasks for HU-11
+```
