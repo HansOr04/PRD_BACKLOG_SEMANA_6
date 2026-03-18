@@ -29,3 +29,11 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 - Cada vehículo debe reportar su kilometraje, máximo 48 horas luego de efectuarse el recorrido.
 - La mayoría de los mantenimientos deben hacerse antes de que el vehículo llegue al límite definido, generar una efectividad de un 90% antes de tiempo.
 - Reducir en un 30% los daños y accidentes inesperados gracias al mantenimiento preventivo.
+
+## Actores del Sistema
+
+### Administrador de Flota 
+Persona: Carlos - Jefe de operaciones, logistica (25 vehículos)
+Dolor: Revisa excel para saber cuál vehículo necesita servicio. 3 fallas en carretera este año.
+Necesidad: Sistema que le diga qué vehículo necesita mantenimiento y cuándo.
+HU relacionadas: HU-01, HU-07, HU-09, HU-13, HU-14.
