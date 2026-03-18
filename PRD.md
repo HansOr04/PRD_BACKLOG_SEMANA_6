@@ -47,3 +47,7 @@ HU relacionadas: HU-04
 ### 2.3 Sistema Automatico
 Descripcion: Sistema backend que valida datos y genera alertas sin intervención humana.
 HU relacionadas: HU-05, HU-11.
+
+### Alcance MVP
+
+### 3.1 IN- 8 Historias de Usuario
