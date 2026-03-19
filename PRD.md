@@ -123,24 +123,13 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | RB-04 |  Resistencia al cambio | Alta | Medio | Al pasar de un proceso manual a uno sistematizado, es probable que conductores y administradores no adopten el sistema de inmediato.   |Acompañamiento en la migración inicial y capacitación básica de uso. |
 
 
-   
+### 5.2 Riesgos Técnicos
+ 
+| ID | Riesgo | Prob. | Impacto | Descripción|Mitigación |
+|----|--------|-------|---------|---------|-----------|
+| RT-01 | Datos inconsistentes de km | Alta | Alto | Se tiene que tener en cuenta la importancia de las comas o los puntos al momento de colocar el kilometraje, por que en algunas localidades suele variar al contar decimales o al contar miles.|Necesitamos realizar una validacion estricta que coloque directamente el formato sin que el usuario se preocupe por ello |
+| RT-02 | Scheduler lento con flotas grandes | Baja | Alto | Al momento de realizar una consulta o una alerta si no se realiza una optimizacion de la informacion con normalizacion de la base de datos, se podria generar un flujo demasiado lento lo que podria ocasionar fallos   | Se debe realizar querys optimizadas y una evaluacion incremental para estar optimizando cada vez las mismas |
 
-### Riesgos tecnicos
-
-- Datos inconsistentes de km   
-Probabilidad: Alta      
-Impacto: Alto
-Se tiene que tener en cuenta la importancia de las comas o los puntos al momento de colocar el kilometraje, por que en algunas localidades suele variar al contar decimales o al contar miles        
-Mitigación:
-Necesitamos realizar una validacion estricta que coloque directamente el formato sin que el usuario se preocupe por ello
-
-
-- Planificador lento con flotas grandes   
-Probabilidad: Bajo      
-Impacto: Alto
-Al momento de realizar una consulta o una alerta si no se realiza una optimizacion de la informacion con normalizacion de la base de datos, se podria generar un flujo demasiado lento lo que podria ocasionar fallos      
-Mitigación:
-Se debe realizar querys optimizadas y una evaluacion incremental para estar optimizando cada vez las mismas
 
 - Pérdida de datos  
 Probabilidad: Bajo      
