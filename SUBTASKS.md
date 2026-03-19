@@ -99,21 +99,21 @@
 | QA  | 1 | Automatizar 3 escenarios Gherkin (uno, múltiples, duplicado) |
 |     | 2 | Verificar que la asociación se refleja correctamente en la evaluación de HU-06 y HU-11 |
 
-## HU-11 Generar alerta automática por kilometraje
+## HU-11: Generar alerta automática por kilometraje
 
-### Rol: DEV
-1. Crear la tabla maintenance_alert en la base de datos con campos: id, vehicle_id, rule_id, status, triggered_at, due_at_km
-2. Vincular maintenance_alert con vehicle mediante llave foránea en vehicle_id
-3. Vincular maintenance_alert con maintenance_rule mediante llave foránea en rule_id
-4. Comparar el current_mileage del vehículo contra el due_at_km de cada regla asociada a su tipo para saber si ya toca generar una alerta
-5. Antes de crear una alerta, revisar que no exista ya una en estado PENDING para ese vehículo y esa regla
-6. Configurar un proceso que corra automáticamente y revise todos los vehículos activos para generar alertas cuando corresponda
-7. Retornar error claro si el vehículo o la regla no fueron encontrados
-### Rol QA
-1. Diseñar matriz: alcanza umbral, lejos, duplicado, inactivo, exacto
-2. Automatizar 5 escenarios Gherkin
-3. Prueba exploratoria: km masivo, verificar no duplicación
-4. Prueba de borde: km exacto en umbral, vehículo sin reglas
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Crear la tabla maintenance_alert en la base de datos con campos: id, vehicle_id, rule_id, status, triggered_at, due_at_km |
+|     | 2 | Vincular maintenance_alert con vehicle mediante llave foránea en vehicle_id |
+|     | 3 | Vincular maintenance_alert con maintenance_rule mediante llave foránea en rule_id |
+|     | 4 | Comparar el current_mileage del vehículo contra el due_at_km de cada regla asociada a su tipo para saber si ya toca generar una alerta |
+|     | 5 | Antes de crear una alerta, revisar que no exista ya una en estado PENDING para ese vehículo y esa regla |
+|     | 6 | Configurar un proceso que corra automáticamente y revise todos los vehículos activos para generar alertas cuando corresponda |
+|     | 7 | Retornar error claro si el vehículo o la regla no fueron encontrados |
+| QA  | 1 | Diseñar matriz: alcanza umbral, lejos, duplicado, inactivo, exacto |
+|     | 2 | Automatizar 5 escenarios Gherkin |
+|     | 3 | Prueba exploratoria: km masivo, verificar no duplicación |
+|     | 4 | Prueba de borde: km exacto en umbral, vehículo sin reglas |
 
 ## HU-12 Consultar y clasificar alertas
 
