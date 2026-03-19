@@ -372,3 +372,20 @@ Dificultad: **Pendiente hablar con Javier**
 Impacto Medio
 Depende de HU-13
 Habilita a HU-14
+
+Feature: Registro de fecha y km del servicio
+
+  Scenario: Registrar con fecha y km específicos del servicio
+    Given un vehículo con km actual 10500
+    When el administrador registra un servicio con fecha "2026-03-15" y km al servicio de 10200
+    Then el registro almacena fecha "2026-03-15" y km 10200
+    And el próximo mantenimiento se calcula desde los 10200 km
+
+  Scenario: Rechazar km del servicio mayor al km actual del vehículo
+    Given un vehículo con km actual 10500
+    When el administrador registra con km al servicio de 11000
+    Then el sistema rechaza indicando que el km no puede superar el actual
+
+  Scenario: Rechazar fecha futura
+    When el administrador registra un servicio con fecha "2027-01-01"
+    Then el sistema rechaza indicando que la fecha no puede ser futura
