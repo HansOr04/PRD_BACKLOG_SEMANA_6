@@ -272,7 +272,7 @@ Esta historia de usuario se enfoca en la **reutilización de reglas de negocio**
 * **Dependencia:** `HU-07`, `HU-01`
 * **Habilita a:** `HU-06`, `HU-11`
 
-### Reglas de Negocio (Criterios de Aceptación)
+### Reglas de Negocio
 1. **Asociación por Tipo:** El sistema debe obligar a que toda regla configurada esté asociada a un tipo de vehículo específico.
 2. **Herencia de Reglas:** Al crear o actualizar un vehículo (`HU-01`), el sistema debe asignarle automáticamente las reglas correspondientes a su tipo.
 3. **Validación de Aplicabilidad:** Cualquier cambio en las reglas de un tipo debe impactar a todos los vehículos vinculados, garantizando la integridad de las historias habilitadas (`HU-06`, `HU-11`).
@@ -314,7 +314,7 @@ Esta historia de usuario representa el núcleo del valor del producto. Su implem
 * **Habilita a:** `HU-12`
 
 
-### Reglas de Negocio (Criterios de Aceptación)
+### Reglas de Negocio
 1. **Generación de Alertas Preventivas:** El sistema debe disparar automáticamente las alertas de mantenimiento antes de que ocurra la falla, basándose en los parámetros de kilometraje y reglas configuradas.
 2. **Procesamiento de Reglas Combinadas:** El motor de cálculo debe integrar la información del vehículo (`HU-01`), el kilometraje actualizado (`HU-04`) y las reglas de negocio por tipo (`HU-07/09`) para determinar la proximidad del servicio.
 3. **Persistencia del Estado Preventivo:** El sistema debe actualizar el tablero de control indicando los vehículos que requieren atención inmediata según los umbrales definidos, habilitando la gestión en `HU-12`.
@@ -368,7 +368,7 @@ Esta historia de usuario tiene como objetivo proporcionar una clasificación vis
 * **Habilita a:** `HU-13`
 
 
-### Reglas de Negocio (Criterios de Aceptación)
+### Reglas de Negocio
 1. **Clasificación por Estado:** El sistema debe agrupar y filtrar automáticamente las alertas basándose en su nivel de urgencia o estado de mantenimiento.
 2. **Jerarquización de Visualización:** El Administrador debe poder distinguir claramente entre vehículos con servicio "Urgente" y vehículos con "Margen", permitiendo una lectura rápida del inventario.
 3. **Consistencia con el Motor de Alertas:** Los estados mostrados en esta vista deben ser coherentes con los cálculos preventivos generados en la `HU-11`.
@@ -399,34 +399,46 @@ Feature: Consulta y clasificación de alertas
 ```
 ## Módulo 5: Historial de Mantenimientos
 ## HU-13 Registrar mantenimiento
-
+`feature` `módulo: historial` `priority: ?` `SP: ?` `role: DEV` `role: QA`
 >**Como** administrador de flota     
 **Quiero** registrar que un mantenimiento fue realizado sobre un vehículo       
 **Para** dejar constancia del mantenimiento y cerrar la alerta generada
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usuario es que sin registrar el servicio, las alertas quedan abiertas para siempre
-Como actor tenemos al administrador
-Dificultad: **Pendiente hablar con Javier**
-Impacto Alto
-Depende de : HU-01 y HU-12
-Habilita HU-14 y HU-16
+## Análisis de Historia de Usuario (QA)
 
+### Contexto de la HU
+Esta historia de usuario es crítica para el cierre del ciclo de mantenimiento. Sin el registro formal del servicio realizado, las alertas del sistema permanecerían abiertas de forma indefinida, invalidando la utilidad del motor de notificaciones y la precisión de los estados de los vehículos.
+
+### Metadatos
+* **Actor Principal:** Administrador
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencias:** `HU-01` y `HU-12`
+* **Habilita a:** `HU-14` y `HU-16`
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Cierre de Alertas:** Al registrar formalmente un servicio de mantenimiento, el sistema debe cerrar automáticamente todas las alertas activas asociadas a ese evento específico.
+2. **Actualización de Historial:** El registro debe quedar vinculado permanentemente al vehículo (`HU-01`) para permitir el seguimiento en auditorías futuras.
+3. **Reinicio de Ciclo:** Una vez guardado el servicio, el sistema debe habilitar el flujo para el cálculo del próximo mantenimiento, permitiendo la operatividad de las historias `HU-14` y `HU-16`.
+
+### Criterios de aceptación
+```gherkin
 Feature: Registro de mantenimiento
-
+ 
   Scenario: Registrar mantenimiento con datos completos
     Given un vehículo con placa "ABC-1234"
     When registra "Cambio de aceite" con costo 85.00, proveedor "Taller Central" y observaciones "Sin novedades"
     Then se crea el registro de mantenimiento asociado al vehículo
-
+ 
   Scenario: Rechazar registro sin tipo de servicio
     When registra mantenimiento sin indicar tipo
     Then rechaza indicando que el tipo es obligatorio
-
+ 
   Scenario: Registrar mantenimiento y resolver alerta pendiente
     Given vehículo con alerta "PENDING" para "Cambio de aceite"
     When registra el servicio de "Cambio de aceite"
     Then la alerta cambia a estado "RESOLVED"
+```
 
 ## HU-14 Asociar mantenimiento a regla aplicada
 
