@@ -19,6 +19,14 @@ Tipo Obligatorio
 Depende de: Ninguna es la primera HU
 Habilita a HU-04, HU06. HU-11, HU-13
 
+Gherkin
+Feature: Registro de vehiculo con tipo asociado
+    Scenario: Registro exitoso con datos validos
+        Given un tipo de vehiculo "Camioneta" registrado en el sistema
+        And no existe un vehiculo con placa "ABC-1234"
+        When el administrador registra un vehiculo con placa "ABC-1234", marca "Toyota", modelo "Hilux", año 2023, combustible "Diesel", VIN "1HGBH41JXMN109186"  y tipo "Camioneta"
+        Then el vehículo se crea con estado "ACTIVE" y kilometraje inicial del vehiculo
+
 
 ## HU-04 Registrar y acumular kilometraje
 
