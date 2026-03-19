@@ -46,12 +46,14 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 - **Interacción:** Gestiona vehículos, reglas, alertas (consulta) e historial.
 - **HU:** HU-01, HU-07, HU-09, HU-12, HU-13, HU-14, HU-16.
 
+### 2.2 Conductor
+ 
+- **Persona:** María — Conductora de reparto
+- **Dolor:** No tiene forma rápida de reportar kilometraje de su vehículo.
+- **Necesidad:** Registro rápido del kilometraje.
+- **Interacción:** Solo registra kilometraje.
+- **HU:** HU-04.
 
-### Conductor
-Persona: María' Condutora de reparto
-Dolor: No puede reportar de forma rapida el kilometraje de su vehiculo
-Necesidad: Registro rapido del kilometraje
-HU relacionadas: HU-04, HU-06, HU-12
 
 ### Sistema Automatico
 Descripcion: Sistema backend que valida datos y genera alertas sin intervención humana.
