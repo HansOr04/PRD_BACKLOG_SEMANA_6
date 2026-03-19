@@ -187,6 +187,15 @@ Feature: Creación de regla de mantenimiento
 **Quiero** asociar un regla de mantenimiento a un tipo de vehículo      
 **Para** que el sistema sepa qué condiciones de mantenimiento aplican a cada vehículo de la flota 
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usaurio es para la reutilizacion de reglas, una vez configurada, podemos aplicarlas para todos los vehiculos del mismo tipo
+Como actor tenemos al administrados
+Dificultad: **Pendiente hablar con Javier**
+Impacto Alto
+Regla : Siempre las reglas se asocian a tipos de vehiculos
+Depende de HU-07, HU-01
+Habilita a HU-06,HU-11
+
 ## HU-11 Generar alerta automática por kilometraje
 
 **Como** sistema     
