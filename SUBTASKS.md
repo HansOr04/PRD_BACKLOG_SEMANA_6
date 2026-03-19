@@ -44,18 +44,17 @@
 
 ## HU-05 Validar coherencia del kilometraje
 
-### Rol: DEV
-1. Verificar que el mileage_value ingresado sea mayor a cero
-2. Si el vehículo no tiene kilometraje previo, aceptar cualquier valor mayor a cero como primer registro
-3. Verificar que el mileage_value sea mayor al current_mileage actual del vehículo
-4. Avisar en la respuesta si el incremento supera 2000 km respecto al último registro, sin bloquear el guardado
-5. Retornar error claro si el km es negativo, igual o menor al actual
+> **Nota:** estas validaciones se ejecutan dentro del endpoint  POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
 
-Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
-
-## ROL QA
-1. Diseñar matriz de datos de borde: menor, negativo, igual, excesivo
-2. Automatizar 4 escenarios Gherkin
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Verificar que el mileage_value ingresado sea mayor a cero |
+|     | 2 | Si el vehículo no tiene kilometraje previo, aceptar cualquier valor mayor a cero como primer registro |
+|     | 3 | Verificar que el mileage_value sea mayor al current_mileage actual del vehículo |
+|     | 4 | Avisar en la respuesta si el incremento supera 2000 km respecto al último registro, sin bloquear el guardado |
+|     | 5 | Retornar error claro si el km es negativo, igual o menor al actual |
+| QA  | 1 | Diseñar matriz de datos de borde: menor, negativo, igual, excesivo |
+|     | 2 | Automatizar 4 escenarios Gherkin |
 
 ## HU-06: Consultar estado de mantenimiento del vehículo
 
