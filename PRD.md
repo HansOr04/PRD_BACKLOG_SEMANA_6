@@ -134,20 +134,13 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | RT-05 | Alertas falsas por reglas mal configuradas | Media | Alto |Al generar una alerta por no realizar bien el analisis de lo que se necesita puede dar falsos positivos | Es un testing exhaustivo con las reglas de negocio para poder validar cada una de estas, ademas de una UI intuitiva que no genere ambiguedad al momento de colocar la regla |
 | RT-06 | Race conditions en registro concurrente km | Baja | Medio |Al momento de registrar un valor de km si dos condutores mandan al mismo tiempo un valor esto puede perjudicar al registro de cada vehiculo |Se realiza un locking Optimista con el cual si dos usuarios mandan un dato al mismo vehiculo a la vez guarda el primero que entro y despues ingresa nuevamente el otro valor y lo suma al nuevo valor|
 
+### 5.3 Riesgos QA
+ 
+| ID | Riesgo | Mitigación |
+|----|--------|-----------|
+| RQ-01 | Cobertura insuficiente del motor de reglas | Matriz: km variados, umbrales exactos, sin reglas |
+| RQ-02 | Escenarios de borde en validación km (HU-05) | Probar: igual, negativo, excesivo |
 
-
-
-
-
-
-
-## Riesgos QA
-
-Riesgo: Cobertura insuficiente del motor de reglas
-Mitigacion: Matriz: km variados, umbrales exactos, sin reglas
-
-Riesgo: Escenarios de borde en validación km 
-Mitigacion:Probar: igual, negativo, excesivo
 
 Riesgo:Alertas duplicadas o perdidas 
 Mitigacion:Pruebas de idempotencia del scheduler
