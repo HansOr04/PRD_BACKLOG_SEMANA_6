@@ -47,3 +47,9 @@
 **Como** administrador de flota o conductor     
 **Quiero** consultar las alertas activas que tiene un vehículo y poderlas clasificar según su estado      
 **Para** priorizar los mantenimientos más urgentes y mantener el vehículo al día y en operación
+
+## HU-13 Registrar mantenimiento
+
+**Como** administrador de flota
+**Quiero** registrar que un mantenimiento fue realizado sobre un vehículo
+**Para** dejar constancia del mantenimiento y cerrar la alerta generada
