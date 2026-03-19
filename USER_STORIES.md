@@ -96,7 +96,15 @@ Feature: Validación de coherencia del kilometraje
     When se registra -100
     Then rechaza indicando que debe ser positivo
 
-  
+  Scenario: Aceptar km igual al actual
+    Given km actual 45000
+    When se registra 45000
+    Then acepta y el acumulado permanece en 45000
+
+  Scenario: Advertir incremento excesivo
+    Given km actual 45000
+    When se registra 48000 (incremento > 2000 en un día)
+    Then acepta con advertencia de incremento inusual
 
 ## HU-06 Consultar estado de mantenimiento del vehículo
 
