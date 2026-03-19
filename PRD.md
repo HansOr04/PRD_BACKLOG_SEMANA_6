@@ -140,16 +140,7 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 |----|--------|-----------|
 | RQ-01 | Cobertura insuficiente del motor de reglas | Matriz: km variados, umbrales exactos, sin reglas |
 | RQ-02 | Escenarios de borde en validación km (HU-05) | Probar: igual, negativo, excesivo |
-
-
-Riesgo:Alertas duplicadas o perdidas 
-Mitigacion:Pruebas de idempotencia del scheduler
-
-Riesgo:Reseteo incorrecto del contador 
-Mitigacion:Verificar cálculo con datos controlados
-
-Riesgo:Clasificación incorrecta de alertas
-Mitigacion:Probar flujo de transiciones PENDING→WARNING→OVERDUE→RESOLVED
-
-Riesgo:Evaluación de estado inconsistente
-Mitigacion:Probar: al día, próximo, vencido, sin reglas, múltiples reglas
+| RQ-03 | Alertas duplicadas o perdidas (HU-11) | Pruebas de idempotencia del scheduler |
+| RQ-04 | Reseteo incorrecto del contador (HU-14) | Verificar cálculo con datos controlados |
+| RQ-05 | Clasificación incorrecta de alertas (HU-12) | Probar transiciones PENDING→WARNING→OVERDUE→RESOLVED |
+| RQ-06 | Evaluación de estado inconsistente (HU-06) | Probar: al día, próximo, vencido, sin reglas, múltiples reglas |
