@@ -350,46 +350,57 @@ Feature: Alerta automática por kilómetros
 ```
 
 ## HU-12 Consultar y clasificar alertas
-
-**Como** administrador de flota o conductor     
+`feature` `módulo: alertas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+>**Como** administrador de flota o conductor     
 **Quiero** consultar las alertas activas que tiene un vehículo y poderlas clasificar según su estado      
 **Para** priorizar los mantenimientos más urgentes y mantener el vehículo al día y en operación
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usuario es para cuando con multiples vehiculos el admin necesita saber cuales son urgentes vs cuales tienen margen.
-Esta clasificacion permite toma de decisiones rapida
-Como actor tenemos al administrados
-Dificultad: **Pendiente hablar con Javier**
-Impacto Alto
-Regla: Las aleras son clasificadas por estado
-Depende de HU-11
-Habilita a HU-13
+## Análisis de Historia de Usuario (QA)
 
+### Contexto de la HU
+Esta historia de usuario tiene como objetivo proporcionar una clasificación visual y jerárquica para el Administrador cuando existen múltiples vehículos en el sistema. Al diferenciar los vehículos urgentes de aquellos que aún tienen margen de operación, se facilita la toma de decisiones rápida y la priorización de recursos.
+
+### Metadatos
+* **Actor Principal:** Administrador
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencia:** `HU-11`
+* **Habilita a:** `HU-13`
+
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Clasificación por Estado:** El sistema debe agrupar y filtrar automáticamente las alertas basándose en su nivel de urgencia o estado de mantenimiento.
+2. **Jerarquización de Visualización:** El Administrador debe poder distinguir claramente entre vehículos con servicio "Urgente" y vehículos con "Margen", permitiendo una lectura rápida del inventario.
+3. **Consistencia con el Motor de Alertas:** Los estados mostrados en esta vista deben ser coherentes con los cálculos preventivos generados en la `HU-11`.
+
+### Criterios de aceptación
+```gherkin
 Feature: Consulta y clasificación de alertas
-
+ 
   Scenario: Filtrar alertas por estado PENDING
     Given existen 5 alertas PENDING, 3 WARNING y 2 OVERDUE
     When el administrador filtra por estado "PENDING"
     Then el sistema retorna las 5 alertas pendientes
-
+ 
   Scenario: Consultar todas las alertas activas
     Given existen alertas en diferentes estados
     When el administrador consulta sin filtro de estado
     Then retorna todas las alertas no resueltas con vehículo, regla, estado y fecha
-
+ 
   Scenario: Alerta escala de WARNING a OVERDUE
     Given una alerta en estado "WARNING" para un vehículo que superó el límite de km
     When el sistema re-evalúa las alertas
     Then el estado cambia a "OVERDUE"
-
+ 
   Scenario: No mostrar alertas resueltas por defecto
     Given existen 3 alertas "RESOLVED" y 2 "PENDING"
     When el administrador consulta alertas activas
     Then solo muestra las 2 "PENDING"
-
+```
+## Módulo 5: Historial de Mantenimientos
 ## HU-13 Registrar mantenimiento
 
-**Como** administrador de flota     
+>**Como** administrador de flota     
 **Quiero** registrar que un mantenimiento fue realizado sobre un vehículo       
 **Para** dejar constancia del mantenimiento y cerrar la alerta generada
 
