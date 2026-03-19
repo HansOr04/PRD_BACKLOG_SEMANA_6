@@ -74,6 +74,11 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 6. Exponer endpoint POST /api/maintenance-rules
 7. Retornar error claro si el nombre está vacío o si el interval_km es cero o negativo
 
+### Rol: QA
+1. Diseñar matriz: completa, sin nombre, intervalo 0, umbral personalizado
+2. Automatizar 4 escenarios Gherkin
+3. Prueba exploratoria: valores límite (intervalos muy altos/bajos)
+
 ## HU-09 Asociar regla a tipo de vehículo
 
 ### Rol: DEV
@@ -84,6 +89,10 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 5. Definir los DTOs de entrada (id de regla, id de tipo de vehículo) y de salida (asociación creada)
 6. Exponer endpoint POST /api/maintenance-rules/{id}/vehicle-types
 7. Retornar error claro si la asociación ya existe o si la regla o el tipo de vehículo no fueron encontrados
+
+### Rol: QA
+1. Automatizar 3 escenarios Gherkin (uno, múltiples, duplicado)
+2. Verificar que asociación se refleja en evaluación (HU-06 y HU-11)
 
 ## HU-11 Generar alerta automática por kilometraje
 
