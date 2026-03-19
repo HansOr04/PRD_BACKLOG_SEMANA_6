@@ -38,12 +38,14 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | O4 | Reducir costos por mantenimiento correctivo | -30% en reparaciones de emergencia |
 
 ## Actores del Sistema
+### 2.1 Administrador de Flota
+ 
+- **Persona:** Carlos — Jefe de Operaciones, logística (25 vehículos)
+- **Dolor:** Revisa Excel para saber cuál vehículo necesita servicio. 3 fallas en carretera este año.
+- **Necesidad:** Sistema que le diga qué vehículo necesita mantenimiento y cuándo.
+- **Interacción:** Gestiona vehículos, reglas, alertas (consulta) e historial.
+- **HU:** HU-01, HU-07, HU-09, HU-12, HU-13, HU-14, HU-16.
 
-### Administrador de Flota 
-Persona: Carlos - Jefe de operaciones, logistica (25 vehículos)
-Dolor: Revisa excel para saber cuál vehículo necesita servicio. 3 fallas en carretera este año.
-Necesidad: Sistema que le diga qué vehículo necesita mantenimiento y cuándo.
-HU relacionadas: HU-01, HU-06, HU-07, HU-09, HU-12, HU-13, HU-14, HU-16.
 
 ### Conductor
 Persona: María' Condutora de reparto
