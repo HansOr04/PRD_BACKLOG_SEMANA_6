@@ -68,31 +68,11 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 |--------|-----|--------------|-------|
 | **Vehículos** | HU-01 | Registrar vehículo con tipo asociado | Administrador |
 | **Kilometraje** | HU-04 | Registrar y acumular kilometraje | Conductor |
-
-Modulo Kilometraje  
-Historia de Usuario: HU-05  
-Funcionalidad: validar coherencia del km    
-Actor: Sistema
-
-Modulo Kilometraje  
-Historia de Usuario: HU-06  
-Funcionalidad: Consultar estado de mantenimiento del vehículo   
-Actor: Administrador de Flota o Conductor
-
-Modulo Reglas   
-Historia de Usuario: HU-07  
-Funcionalidad: Crear regla con tipo de mantenimiento    
-Actor: Administrador de Flota
-
-Modulo Reglas   
-Historia de Usuario: HU-09  
-Funcionalidad: Asociar regla a tipo de vehículo     
-Actor: Administrador de Flota
-
-Modulo Alertas  
-Historia de Usuario: HU-11  
-Funcionalidad: Generar alerta automática por km     
-Actor: Sistema
+| | HU-05 | Validar coherencia del km | Sistema |
+| | HU-06 | Consultar estado de mantenimiento del vehículo | Sistema |
+| **Reglas** | HU-07 | Crear regla con tipo de mantenimiento | Administrador |
+| | HU-09 | Asociar regla a tipo de vehículo | Administrador |
+| **Alertas** | HU-11 | Generar alerta automática por km | Sistema |
 
 Modulo Alertas  
 Historia de Usuario: HU-12  
