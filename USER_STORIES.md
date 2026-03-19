@@ -196,6 +196,23 @@ Regla : Siempre las reglas se asocian a tipos de vehiculos
 Depende de HU-07, HU-01
 Habilita a HU-06,HU-11
 
+Feature: Asociación regla a tipo de vehículo
+
+  Scenario: Asociar regla a un tipo
+    Given regla "Cambio de aceite" y tipo "Camioneta" existentes
+    When el administrador los asocia
+    Then todos los vehículos tipo "Camioneta" quedan sujetos a esa regla
+
+  Scenario: Asociar a múltiples tipos
+    Given regla "Revisión de frenos" y tipos "Camioneta" y "Sedán"
+    When asocia a ambos
+    Then la regla aplica para camionetas y sedanes
+
+  Scenario: Rechazar asociación duplicada
+    Given regla ya asociada a "Camioneta"
+    When intenta asociar la misma regla al mismo tipo
+    Then rechaza indicando que ya existe esa vinculación
+
 ## HU-11 Generar alerta automática por kilometraje
 
 **Como** sistema     
