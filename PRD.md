@@ -129,35 +129,16 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 |----|--------|-------|---------|---------|-----------|
 | RT-01 | Datos inconsistentes de km | Alta | Alto | Se tiene que tener en cuenta la importancia de las comas o los puntos al momento de colocar el kilometraje, por que en algunas localidades suele variar al contar decimales o al contar miles.|Necesitamos realizar una validacion estricta que coloque directamente el formato sin que el usuario se preocupe por ello |
 | RT-02 | Scheduler lento con flotas grandes | Baja | Alto | Al momento de realizar una consulta o una alerta si no se realiza una optimizacion de la informacion con normalizacion de la base de datos, se podria generar un flujo demasiado lento lo que podria ocasionar fallos   | Se debe realizar querys optimizadas y una evaluacion incremental para estar optimizando cada vez las mismas |
+| RT-03 | Pérdida de datos | Baja | Crítico |Si en algun momento la base de datos se ve comprometida por medidas de seguridad o por ejecuciones de Querys no debidas. |BackUps diarios debido a la perseveracion de los datos y la integridad de los mismos|
+| RT-04 | Vulnerabilidades API | Media | Crítico | Situaciones donde la informacion se puede filtrar o visualizar porque no hay un medio de seguridad aplicado |Generacion de tokens, roles o validacion de la informacion en inputs para evitar riesgos de seguridad |
+| RT-05 | Alertas falsas por reglas mal configuradas | Media | Alto |Al generar una alerta por no realizar bien el analisis de lo que se necesita puede dar falsos positivos | Es un testing exhaustivo con las reglas de negocio para poder validar cada una de estas, ademas de una UI intuitiva que no genere ambiguedad al momento de colocar la regla |
+| RT-06 | Race conditions en registro concurrente km | Baja | Medio |Al momento de registrar un valor de km si dos condutores mandan al mismo tiempo un valor esto puede perjudicar al registro de cada vehiculo |Se realiza un locking Optimista con el cual si dos usuarios mandan un dato al mismo vehiculo a la vez guarda el primero que entro y despues ingresa nuevamente el otro valor y lo suma al nuevo valor|
 
 
-- Pérdida de datos  
-Probabilidad: Bajo      
-Impacto: Critico
-Si en algun momento la base de datos se ve comprometida por medidas de seguridad o por ejecuciones de Querys no debidas.       
-Mitigación:
-BackUps diarios debido a la perseveracion de los datos y la integridad de los mismos
 
-- Vulnerabilidades API 
-Probabilidad: Media      
-Impacto: Critico
-Situaciones donde la informacion se puede filtrar o visualizar porque no hay un medio de seguridad aplicado  
-Mitigación:
-Generacion de tokens, roles o validacion de la informacion en inputs para evitar riesgos de seguridad
 
-- Alertas falsas por reglas mal configuradas
-Probabilidad: Media      
-Impacto: Alto
-Al generar una alerta por no realizar bien el analisis de lo que se necesita puede dar falsos positivos  
-Mitigación:
-Es un testing exhaustivo con las reglas de negocio para poder validar cada una de estas, ademas de una UI intuitiva que no genere ambiguedad al momento de colocar la regla
 
-- Race conditions en registro concurrente km
-Probabilidad: Bajo      
-Impacto: Medio
-Al momento de registrar un valor de km si dos condutores mandan al mismo tiempo un valor esto puede perjudicar al registro de cada vehiculo
-Mitigación:
-Se realiza un locking Optimista con el cual si dos usuarios mandan un dato al mismo vehiculo a la vez guarda el primero que entro y despues ingresa nuevamente el otro valor y lo suma al nuevo valor
+
 
 
 ## Riesgos QA
