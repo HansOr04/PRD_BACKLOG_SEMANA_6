@@ -127,22 +127,21 @@
 | QA  | 1 | Automatizar 4 escenarios Gherkin (filtrar, listar, escalar, ocultar resueltas) |
 |     | 2 | Probar transiciones: PENDING → WARNING → OVERDUE → RESOLVED |
 
-## HU-13 Registrar mantenimiento
+## HU-13: Registrar mantenimiento
 
-### Rol: DEV
-1. Crear la tabla maintenance_record en la base de datos con campos: id, vehicle_id, alert_id, rule_id, description, cost, provider, performed_at, mileage_at_service
-2. Vincular maintenance_record con vehicle mediante llave foránea en vehicle_id
-3. Vincular maintenance_record con maintenance_alert mediante llave foránea en alert_id
-4. Vincular maintenance_record con maintenance_rule mediante llave foránea en rule_id
-5. Definir los DTOs de entrada (placa, tipo de servicio, costo, proveedor, observaciones) y de salida (registro creado)
-6. Verificar que el tipo de servicio sea obligatorio al momento de registrar
-7. Si existe una alerta PENDING o WARNING asociada al vehículo y al tipo de servicio, cambiar su estado a RESOLVED al guardar el registro
-8. Exponer endpoint POST /api/vehicles/{placa}/maintenance
-9. Retornar error claro si el vehículo no existe o si el tipo de servicio no fue especificado
-
-### Rol QA
-1. Automatizar 3 escenarios Gherkin (completo, sin tipo, resolver alerta)
-2. Verificar que alerta cambia de estado correctamente
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Crear la tabla maintenance_record en la base de datos con campos: id, vehicle_id, alert_id, rule_id, description, cost, provider, performed_at, mileage_at_service |
+|     | 2 | Vincular maintenance_record con vehicle mediante llave foránea en vehicle_id |
+|     | 3 | Vincular maintenance_record con maintenance_alert mediante llave foránea en alert_id |
+|     | 4 | Vincular maintenance_record con maintenance_rule mediante llave foránea en rule_id |
+|     | 5 | Definir DTOs de entrada (placa, tipo de servicio, costo, proveedor, observaciones) y de salida (registro creado) |
+|     | 6 | Verificar que el tipo de servicio sea obligatorio al momento de registrar |
+|     | 7 | Si existe una alerta PENDING o WARNING asociada al vehículo y al tipo de servicio, cambiar su estado a RESOLVED al guardar el registro |
+|     | 8 | Exponer endpoint POST /api/vehicles/{placa}/maintenance |
+|     | 9 | Retornar error claro si el vehículo no existe o si el tipo de servicio no fue especificado |
+| QA  | 1 | Automatizar 3 escenarios Gherkin (completo, sin tipo, resolver alerta) |
+|     | 2 | Verificar que la alerta cambia de estado correctamente al registrar el mantenimiento |
 
 ## HU-14 Asociar mantenimiento a regla aplicada
 
