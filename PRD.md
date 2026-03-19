@@ -118,25 +118,12 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | ID | Riesgo | Prob. | Impacto |Descripción| Mitigación |
 |----|--------|-------|---------|---------|-----------|
 | RB-01 | Conductores no registran km | Alta | Alto |Si los conductores no reportan el km recorrido de forma periódica, el sistema no tiene datos reales para evaluar cuándo generar una alerta, la aplicación no cumpliría su función. |El flujo de registro debe ser simple y tomar menos de 30 segundos. |
+| RB-02 | Reglas no reflejan realidad operativa | Media | Medio | Si el administrador configura reglas con intervalos incorrectos, el sistema generará alertas equivocados, perdiendo confianza el producto. |Las reglas deben ser flexibles y editables por tipo de vehículo. |
+| RB-03 | Admin ignora alertas | Media | Alto | Si las alertas no se atienden, el sistema funciona correctamente pero el mantenimiento igual se retrasa, que es exactamente el problema que se quiere resolver.  |Las alertas deben tener escalamiento visual según su nivel de urgencia.|
+| RB-04 |  Resistencia al cambio | Alta | Medio | Al pasar de un proceso manual a uno sistematizado, es probable que conductores y administradores no adopten el sistema de inmediato.   |Acompañamiento en la migración inicial y capacitación básica de uso. |
 
 
-- Reglas que no reflejan la realidad operativa        
-Probabilidad: Media     
-Impacto: Medio  
-Si el administrador configura reglas con intervalos incorrectos, el sistema generará alertas equivocados, perdiendo confianza el producto.   
-Mitigación: Las reglas deben ser flexibles y editables por tipo de vehículo.
-
-- Administrador ignora las alertas generadas      
-Probabilidad: Media     
-Impacto: Alto   
-Si las alertas no se atienden, el sistema funciona correctamente pero el mantenimiento igual se retrasa, que es exactamente el problema que se quiere resolver.     
-Mitigación: Las alertas deben tener escalamiento visual según su nivel de urgencia.
-
-- Resistencia al cambio por parte del equipo      
-Probabilidad: Alta      
-Impacto: Medio     
-Al pasar de un proceso manual a uno sistematizado, es probable que conductores y administradores no adopten el sistema de inmediato.        
-Mitigación: Acompañamiento en la migración inicial y capacitación básica de uso.
+   
 
 ### Riesgos tecnicos
 
