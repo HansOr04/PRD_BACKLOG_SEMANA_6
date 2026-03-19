@@ -77,21 +77,16 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | **Historial** | HU-13 | Registrar mantenimiento realizado | Administrador |
 | | HU-14 | Asociar mantenimiento a regla y resetear contador | Administrador |
 | | HU-16 | Registrar fecha y km del servicio | Administrador |
-    
 
-### OUT — Fuera de Alcance
+### 3.3 OUT — Futuras versiones
+ 
+| Funcionalidad | Razón |
+|--------------|-------|
+| Consultar vehículo por placa | Se difiere al Sprint 1, el listado general cubre la necesidad básica  |
+| Listar vehículos disponibles | Se difiere al Sprint 1 por alcance del MVP  |
+| Consultar reglas disponibles | Se difiere al Sprint 1, no bloquea el flujo de creación |
+| Modificar reglas existentes | Se difiere al Sprint 1 por alcance del MVP  |
 
-Funcionalidad: Consultar vehículo por placa     
-Razón: Se difiere al Sprint 1, el listado general cubre la necesidad básica 
-
-Funcionalidad: Listar vehículos disponibles     
-Razón: Se difiere al Sprint 1 por alcance del MVP 
-
-Funcionalidad: Consultar reglas         
-Razón: Se difiere al Sprint 1, no bloquea el flujo de creación
-
-Funcionalidad: Modificar reglas     
-Razón: Se difiere al Sprint 1 por alcance del MVP 
 
 Funcionalidad: Obtener historial por placa  
 Razón: Trazabilidad completa para Sprint 1 
