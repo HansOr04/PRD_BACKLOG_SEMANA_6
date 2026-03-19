@@ -28,11 +28,14 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 5. Registrar el historial de mantenimiento realizados por el vehículo, incluyendo la fecha, el kilometraje del servicio y la regla que lo originó.
 6. Reducir costos opertativos con relación a los mantenimientos fuera de tiempo, por medio de intervenciones preventivas planificadas con base en datos reales. 
 
-## Métrica de Éxito
-- El 100% de los vehículos registrados deben tener como mínimo placa, modelo y tipo asociado.
-- Cada vehículo debe reportar su kilometraje, máximo 48 horas luego de efectuarse el recorrido.
-- La mayoría de los mantenimientos deben hacerse antes de que el vehículo llegue al límite definido, generar una efectividad de un 90% antes de tiempo.
-- Reducir en un 30% los daños y accidentes inesperados gracias al mantenimiento preventivo.
+### 1.3 Objetivos del MVP
+ 
+| # | Objetivo | Métrica de Éxito |
+|---|---------|------------------|
+| O1 | Centralizar la información de la flota | 100% de vehículos registrados |
+| O2 | Registrar kilometraje periódicamente | Al menos 1 vez por semana por vehículo |
+| O3 | Alertar mantenimientos antes de que se venzan | ≥ 90% ejecutados antes del umbral |
+| O4 | Reducir costos por mantenimiento correctivo | -30% en reparaciones de emergencia |
 
 ## Actores del Sistema
 
