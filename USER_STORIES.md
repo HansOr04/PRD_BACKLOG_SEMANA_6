@@ -85,6 +85,18 @@ Regla Se utiliza la regla de negocio numero 1 que dice que no se puede tener un 
 Depende de HU-04
 Habilita a : Integridad de HU-06 y HU-11
 
+Feature: Validación de coherencia del kilometraje
+
+  Scenario: Rechazar km menor al último
+    Given un vehículo con km actual 45000
+    When se registra 44500
+    Then rechaza indicando que no puede ser menor a 45000
+
+  Scenario: Rechazar km negativo
+    When se registra -100
+    Then rechaza indicando que debe ser positivo
+
+  
 
 ## HU-06 Consultar estado de mantenimiento del vehículo
 
