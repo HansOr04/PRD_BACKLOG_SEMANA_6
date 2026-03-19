@@ -68,12 +68,23 @@ Feature: Registro y acumulación de kilometraje
     When el conductor "María Torres" registra 46000 km
     Then el registro queda asociado a "María Torres" con fecha y hora actual
 
-    
+
 ## HU-05 Validar coherencia del kilometraje
 
 **Como** sistema     
 **Quiero** validar la coherencia del kilometraje ingresado por el conductor      
 **Para** evitar que datos incorrectos dañen el acumulado del vehículo y provoquen alertas equivocadas
+
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de Usuario es que se separa de la anterior HU debido a que tiene logica de validacion compleja
+Ya que un Km incorrecto, podria arruinar por completo las alertas posteriores
+Como Actor tenemos al Sistema
+Dificultad **Pendiente hablar con Javier**
+Impacto Alto
+Regla Se utiliza la regla de negocio numero 1 que dice que no se puede tener un km menor al anterior registrado
+Depende de HU-04
+Habilita a : Integridad de HU-06 y HU-11
+
 
 ## HU-06 Consultar estado de mantenimiento del vehículo
 
