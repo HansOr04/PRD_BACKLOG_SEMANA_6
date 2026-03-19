@@ -31,6 +31,8 @@
 4. Avisar en la respuesta si el incremento supera 2000 km respecto al último registro, sin bloquear el guardado
 5. Retornar error claro si el km es negativo, igual o menor al actual
 
+Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
+
 ## HU-06: Consultar estado de mantenimiento del vehículo
 
 ### Rol: DEV
