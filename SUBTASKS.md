@@ -104,6 +104,11 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 5. Antes de crear una alerta, revisar que no exista ya una en estado PENDING para ese vehículo y esa regla
 6. Configurar un proceso que corra automáticamente y revise todos los vehículos activos para generar alertas cuando corresponda
 7. Retornar error claro si el vehículo o la regla no fueron encontrados
+### Rol QA
+1. Diseñar matriz: alcanza umbral, lejos, duplicado, inactivo, exacto
+2. Automatizar 5 escenarios Gherkin
+3. Prueba exploratoria: km masivo, verificar no duplicación
+4. Prueba de borde: km exacto en umbral, vehículo sin reglas
 
 ## HU-12 Consultar y clasificar alertas
 
@@ -113,6 +118,8 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 3. Incluir en la respuesta el vehículo, la regla, el estado y la fecha de cada alerta
 4. Cuando una alerta en estado WARNING supere el due_at_km del vehículo, cambiar su estado a OVERDUE automáticamente
 5. Retornar error claro si el estado enviado como filtro no es un valor válido
+
+
 
 ## HU-13 Registrar mantenimiento
 
