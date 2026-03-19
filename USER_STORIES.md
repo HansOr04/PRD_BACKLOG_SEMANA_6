@@ -23,3 +23,9 @@
 **Como** administrador de flota o conductor     
 **Quiero** consultar si existen mantenimientos pendientes del vehículo      
 **Para** tomar acciones oportunas antes de que se venza el límite definido en la regla
+
+## HU-07 Crear regla con tipo de mantenimiento
+
+**Como** administrador de flota     
+**Quiero** crear una regla de mantenimiento preventivo indicando el tipo de mantenimiento y el intervalo de kilometros en que debe realizarse      
+**Para** tener definidas las condiciones bajo las cuales el sistema debe alertar que un vehículo requiere intervención 
