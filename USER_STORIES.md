@@ -306,6 +306,21 @@ Impacto Alto
 Depende de : HU-01 y HU-12
 Habilita HU-14 y HU-16
 
+Feature: Registro de mantenimiento
+
+  Scenario: Registrar mantenimiento con datos completos
+    Given un vehículo con placa "ABC-1234"
+    When registra "Cambio de aceite" con costo 85.00, proveedor "Taller Central" y observaciones "Sin novedades"
+    Then se crea el registro de mantenimiento asociado al vehículo
+
+  Scenario: Rechazar registro sin tipo de servicio
+    When registra mantenimiento sin indicar tipo
+    Then rechaza indicando que el tipo es obligatorio
+
+  Scenario: Registrar mantenimiento y resolver alerta pendiente
+    Given vehículo con alerta "PENDING" para "Cambio de aceite"
+    When registra el servicio de "Cambio de aceite"
+    Then la alerta cambia a estado "RESOLVED"
 
 ## HU-14 Asociar mantenimiento a regla aplicada
 
