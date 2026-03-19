@@ -65,3 +65,14 @@
 5. Definir los DTOs de entrada (id de regla, id de tipo de vehículo) y de salida (asociación creada)
 6. Exponer endpoint POST /api/maintenance-rules/{id}/vehicle-types
 7. Retornar error claro si la asociación ya existe o si la regla o el tipo de vehículo no fueron encontrados
+
+## HU-11 Generar alerta automática por kilometraje
+
+### Rol: DEV
+1. Crear la tabla maintenance_alert en la base de datos con campos: id, vehicle_id, rule_id, status, triggered_at, due_at_km
+2. Vincular maintenance_alert con vehicle mediante llave foránea en vehicle_id
+3. Vincular maintenance_alert con maintenance_rule mediante llave foránea en rule_id
+4. Comparar el current_mileage del vehículo contra el due_at_km de cada regla asociada a su tipo para saber si ya toca generar una alerta
+5. Antes de crear una alerta, revisar que no exista ya una en estado PENDING para ese vehículo y esa regla
+6. Configurar un proceso que corra automáticamente y revise todos los vehículos activos para generar alertas cuando corresponda
+7. Retornar error claro si el vehículo o la regla no fueron encontrados
