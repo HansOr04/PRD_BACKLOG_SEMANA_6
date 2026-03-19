@@ -227,7 +227,17 @@ Impacto Critico
 Depende de HU-01, HU-04, HU-07+HU-09
 Habilita a HU-12
 
+Feature: Alerta automática por kilómetros
 
+  Scenario: Generar alerta al alcanzar umbral
+    Given vehículo con km 9500, regla cada 10000 km, umbral 500, último servicio a 0 km
+    When el sistema evalúa las reglas
+    Then genera alerta "PENDING" indicando servicio a 10000 km
+
+  Scenario: No generar si está lejos del umbral
+    Given vehículo con km 7000, regla cada 10000 km, umbral 500
+    When evalúa
+    Then no genera alerta
 
 ## HU-12 Consultar y clasificar alertas
 
