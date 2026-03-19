@@ -203,11 +203,6 @@ Feature: Asociación regla a tipo de vehículo
     When el administrador los asocia
     Then todos los vehículos tipo "Camioneta" quedan sujetos a esa regla
 
-  Scenario: Asociar a múltiples tipos
-    Given regla "Revisión de frenos" y tipos "Camioneta" y "Sedán"
-    When asocia a ambos
-    Then la regla aplica para camionetas y sedanes
-
   Scenario: Rechazar asociación duplicada
     Given regla ya asociada a "Camioneta"
     When intenta asociar la misma regla al mismo tipo

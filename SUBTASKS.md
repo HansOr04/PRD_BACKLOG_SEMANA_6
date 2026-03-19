@@ -26,6 +26,10 @@
 6. Exponer endpoint POST /api/vehicles/{placa}/mileage
 7. Retornar error claro si el vehículo no existe o si el conductor no fue especificado
 
+### Rol QA
+1. Automatizar 2 escenarios Gherkin (registro exitoso, asociación conductor)
+2. Prueba de rendimiento: registro toma < 30 segundos
+
 ## HU-05 Validar coherencia del kilometraje
 
 ### Rol: DEV
