@@ -358,9 +358,17 @@ Feature: Asociación a regla y reseteo de contador
     Given vehículo con km 15300 y regla cada 15000 km
     When asocia mantenimiento a la regla
     Then próximo servicio programado a 30300 km
-    
+
 ## HU-16 Registrar fecha y km del servicio
 
 **Como** administrador de flota     
 **Quiero** registrar la fecha y los kilometros que llevaba al momento del mantenimiento     
 **Para** que el sistema calcule correctamente cuándo debe generarse la próxima alerta
+
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta Historia de usuario es que el servicio puede ser realizado en cualquier fecha y no se registro en el sistema, con lo cual puede diferir al momento de conocer el km actual
+El actor es administrador
+Dificultad: **Pendiente hablar con Javier**
+Impacto Medio
+Depende de HU-13
+Habilita a HU-14
