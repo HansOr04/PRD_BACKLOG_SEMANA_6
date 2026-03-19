@@ -73,26 +73,11 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | **Reglas** | HU-07 | Crear regla con tipo de mantenimiento | Administrador |
 | | HU-09 | Asociar regla a tipo de vehículo | Administrador |
 | **Alertas** | HU-11 | Generar alerta automática por km | Sistema |
-
-Modulo Alertas  
-Historia de Usuario: HU-12  
-Funcionalidad: Consultar y clasificar alertas por estado    
-Actor: Administrador de Flota o Conductor
-
-Modulo Historial    
-Historia de Usuario: HU-13  
-Funcionalidad: Registrar mantenimiento realizado    
-Actor: Administrador de Flota
-
-Modulo Historial    
-Historia de Usuario: HU-14  
-Funcionalidad: Asociar mantenimiento a regla y resetear contador    
-Actor: Administrador de Flota
-
-Modulo Historial    
-Historia de Usuario: HU-16  
-Funcionalidad: Registrar fecha y km del servicio    
-Actor: Administrador de Flota 
+| | HU-12 | Consultar y clasificar alertas por estado | Administrador |
+| **Historial** | HU-13 | Registrar mantenimiento realizado | Administrador |
+| | HU-14 | Asociar mantenimiento a regla y resetear contador | Administrador |
+| | HU-16 | Registrar fecha y km del servicio | Administrador |
+    
 
 ### OUT — Fuera de Alcance
 
