@@ -112,6 +112,17 @@ Feature: Validación de coherencia del kilometraje
 **Quiero** consultar si existen mantenimientos pendientes del vehículo      
 **Para** tomar acciones oportunas antes de que se venza el límite definido en la regla
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usuario es que se necesita agregar una consulta activa del estado, ya que no podemos siempre esperar la alerta programada.
+Esto le permite en si al administrador que consulte en cualquier momento si un vehiculo necesita servicio
+Como actor tenemos al Sistema
+Dificultad: **Pendiente hablar con Javier**
+Impacto Alto
+Depende de: HU-01 HU-04, HU-07 + HU-09
+Habilita a: En si complementa a HU-11
+
+
+
 ## HU-07 Crear regla con tipo de mantenimiento
 
 **Como** administrador de flota     
