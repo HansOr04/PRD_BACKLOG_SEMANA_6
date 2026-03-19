@@ -143,19 +143,18 @@
 | QA  | 1 | Automatizar 3 escenarios Gherkin (completo, sin tipo, resolver alerta) |
 |     | 2 | Verificar que la alerta cambia de estado correctamente al registrar el mantenimiento |
 
-## HU-14 Asociar mantenimiento a regla aplicada
+## HU-14: Asociar mantenimiento a regla aplicada
 
-### Rol: DEV
-1. Calcular el próximo servicio sumando el interval_km de la regla al mileage_at_service del mantenimiento registrado y guardarlo en due_at_km
-2. Verificar que la regla que se quiere asociar corresponda al tipo del vehículo antes de vincularla
-3. Si el mantenimiento se registra sin una alerta previa, resetear el contador desde el mileage_at_service actual del vehículo igualmente
-4. Exponer endpoint PATCH /api/maintenance/{id}/rule
-5. Retornar error claro si la regla no existe o no corresponde al tipo del vehículo
-
-### Rol: QA
-1. Automatizar 4 escenarios Gherkin (reseteo, sin alerta, resolver, cálculo)
-2. Verificar cálculo correcto del próximo servicio con datos controlados
-3. Prueba exploratoria: múltiples reglas activas para un vehículo
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Calcular el próximo servicio sumando el interval_km de la regla al mileage_at_service del mantenimiento registrado y guardarlo en due_at_km |
+|     | 2 | Verificar que la regla que se quiere asociar corresponda al tipo del vehículo antes de vincularla |
+|     | 3 | Si el mantenimiento se registra sin una alerta previa, resetear el contador desde el mileage_at_service actual del vehículo igualmente |
+|     | 4 | Exponer endpoint PATCH /api/maintenance/{id}/rule |
+|     | 5 | Retornar error claro si la regla no existe o no corresponde al tipo del vehículo |
+| QA  | 1 | Automatizar 4 escenarios Gherkin (reseteo, sin alerta, resolver, cálculo) |
+|     | 2 | Verificar cálculo correcto del próximo servicio con datos controlados |
+|     | 3 | Prueba exploratoria: múltiples reglas activas para un vehículo |
 
 ## HU-16 Registrar fecha y km del servicio
 
