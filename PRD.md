@@ -111,16 +111,14 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | RN-06 | Alertas clasificadas por estado | PENDING → WARNING → OVERDUE → RESOLVED | HU-12 |
 
 
+## 5. Riesgos
+ 
+### 5.1 Riesgos de Negocio
+ 
+| ID | Riesgo | Prob. | Impacto |Descripción| Mitigación |
+|----|--------|-------|---------|---------|-----------|
+| RB-01 | Conductores no registran km | Alta | Alto |Si los conductores no reportan el km recorrido de forma periódica, el sistema no tiene datos reales para evaluar cuándo generar una alerta, la aplicación no cumpliría su función. |El flujo de registro debe ser simple y tomar menos de 30 segundos. |
 
-## Riesgos
-
-### Riesgos de Negocio
-
-- Conductores no registran el kilometraje     
-Probabilidad: Alta   
-Impacto: Alto   
-Si los conductores no reportan el km recorrido de forma periódica, el sistema no tiene datos reales para evaluar cuándo generar una alerta, la aplicación no cumpliría su función.  
-Mitigación: El flujo de registro debe ser simple y tomar menos de 30 segundos.
 
 - Reglas que no reflejan la realidad operativa        
 Probabilidad: Media     
