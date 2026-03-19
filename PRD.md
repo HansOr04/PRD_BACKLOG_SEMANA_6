@@ -1,9 +1,13 @@
-PRD-Sistema de Gestión de Flota y Mantenimiento preventivo
-Caso de Producto: Automotive- Gestor de flota y Mantenimiento Automotriz
-Fecha de inicio: 18/03/2026
-Equipo y rol
-Javier Luis DEV
-Hans Ortiz QA
+# PRD — Sistema de Gestión de Flota y Mantenimiento Preventivo
+ 
+**Sofware:** FleetGuard — Gestión de Flota y Mantenimiento Automotriz  
+**Fecha:** 18/03/2026
+**Equipo:**
+ 
+| Rol | Integrante | País |
+|-----|-----------|------|
+| QA  | Hans  Ortiz | Ecuador |
+| DEV | Javier Luis | Colombia |
 
 ## Problema a resolver
 
