@@ -42,7 +42,7 @@
 | QA  | 1 | Automatizar 2 escenarios Gherkin (registro exitoso, asociación conductor) |
 |     | 2 | Prueba de rendimiento: registro toma < 30 segundos |
 
-## HU-05 Validar coherencia del kilometraje
+## HU-05: Validar coherencia del kilometraje
 
 > **Nota:** estas validaciones se ejecutan dentro del endpoint  POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
 
@@ -70,21 +70,20 @@
 |     | 2 | Automatizar 4 escenarios Gherkin |
 |     | 3 | Prueba exploratoria: vehículo con 5+ reglas de diferentes tipos |
 
-## HU-07 Crear regla con tipo de mantenimiento
+## HU-07: Crear regla con tipo de mantenimiento
 
-### Rol: DEV
-1. Crear la tabla maintenance_rule en la base de datos con campos: id, name, maintenance_type, interval_km, warning_threshold_km, status
-2. Definir los DTOs de entrada (nombre, tipo de mantenimiento, intervalo en km, umbral de advertencia) y de salida (regla creada con su estado)
-3. Verificar que el nombre sea obligatorio y que el interval_km sea mayor a cero
-4. Asegurarse de que el warning_threshold_km sea configurable y opcional, con un valor por defecto si no se especifica
-5. Registrar la regla con estado ACTIVE al momento de crearla
-6. Exponer endpoint POST /api/maintenance-rules
-7. Retornar error claro si el nombre está vacío o si el interval_km es cero o negativo
-
-### Rol: QA
-1. Diseñar matriz: completa, sin nombre, intervalo 0, umbral personalizado
-2. Automatizar 4 escenarios Gherkin
-3. Prueba exploratoria: valores límite (intervalos muy altos/bajos)
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Crear la tabla maintenance_rule en la base de datos con campos: id, name, maintenance_type, interval_km, warning_threshold_km, status |
+|     | 2 | Definir los DTOs de entrada (nombre, tipo de mantenimiento, intervalo en km, umbral de advertencia) y de salida (regla creada con su estado) |
+|     | 3 | Verificar que el nombre sea obligatorio y que el interval_km sea mayor a cero |
+|     | 4 | Asegurarse de que el warning_threshold_km sea configurable y opcional, con un valor por defecto si no se especifica |
+|     | 5 | Registrar la regla con estado ACTIVE al momento de crearla |
+|     | 6 | Exponer endpoint POST /api/maintenance-rules |
+|     | 7 | Retornar error claro si el nombre está vacío o si el interval_km es cero o negativo |
+| QA  | 1 | Diseñar matriz: completa, sin nombre, intervalo 0, umbral personalizado |
+|     | 2 | Automatizar 4 escenarios Gherkin |
+|     | 3 | Prueba exploratoria: valores límite (intervalos muy altos/bajos) |
 
 ## HU-09 Asociar regla a tipo de vehículo
 
