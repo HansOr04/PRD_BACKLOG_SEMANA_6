@@ -35,3 +35,9 @@
 **Como** administrador de flota     
 **Quiero** asociar un regla de mantenimiento a un tipo de vehículo      
 **Para** que el sistema sepa qué condiciones de mantenimiento aplican a cada vehículo de la flota 
+
+## HU-11 Generar alerta automática por kilometraje
+
+**Como** sistema     
+**Quiero** generar una alerta automática cuando el kilometraje total de un vehículo alcance el límite definido de una regla      
+**Para** notificar oportunamente que ese vehículo requiere mantenimiento
