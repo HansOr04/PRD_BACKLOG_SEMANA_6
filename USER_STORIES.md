@@ -298,6 +298,15 @@ Feature: Consulta y clasificación de alertas
 **Quiero** registrar que un mantenimiento fue realizado sobre un vehículo       
 **Para** dejar constancia del mantenimiento y cerrar la alerta generada
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usuario es que sin registrar el servicio, las alertas quedan abiertas para siempre
+Como actor tenemos al administrador
+Dificultad: **Pendiente hablar con Javier**
+Impacto Alto
+Depende de : HU-01 y HU-12
+Habilita HU-14 y HU-16
+
+
 ## HU-14 Asociar mantenimiento a regla aplicada
 
 **Como** administrador de flota     
