@@ -55,6 +55,20 @@ Regla: Se debe asociar a un conductor
 Depende de: HU-01
 Habilita a HU-05, HU-06, HU-11
 
+Feature: Registro y acumulación de kilometraje
+
+  Scenario: Registro exitoso
+    Given un vehículo "ACTIVE" con placa "ABC-1234" y km actual 45000
+    When el conductor "María Torres" registra 45350 km
+    Then se crea registro con valor 45350, fecha actual y conductor "María Torres"
+    And el km acumulado del vehículo se actualiza a 45350
+
+  Scenario: Registro asocia conductor responsable
+    Given un vehículo activo
+    When el conductor "María Torres" registra 46000 km
+    Then el registro queda asociado a "María Torres" con fecha y hora actual
+
+    
 ## HU-05 Validar coherencia del kilometraje
 
 **Como** sistema     
