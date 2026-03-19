@@ -292,42 +292,62 @@ Feature: Asociación regla a tipo de vehículo
     When intenta asociar la misma regla al mismo tipo
     Then rechaza indicando que ya existe esa vinculación
 ```
+## Módulo 4: Alertas de Mantenimiento
 
 ## HU-11 Generar alerta automática por kilometraje
-
-**Como** sistema     
+`feature` `módulo: alertas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+>**Como** sistema     
 **Quiero** generar una alerta automática cuando el kilometraje total de un vehículo alcance el límite definido de una regla      
 **Para** notificar oportunamente que ese vehículo requiere mantenimiento
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usuario es que es el nucleo del valor del producto ya que nos permite cambiar la gestion de reactiva a preventiva
-Como Actor tneemos al Sistema
-Dificultad: **Pendiente hablar con Javier**
-Impacto Critico
-Depende de HU-01, HU-04, HU-07+HU-09
-Habilita a HU-12
+# Análisis de Historia de Usuario (QA)
 
+### Contexto de la HU
+Esta historia de usuario representa el núcleo del valor del producto. Su implementación permite la transición de una gestión de mantenimiento reactiva a una **preventiva**, siendo el componente crítico para la generación automatizada de alertas de servicio.
+
+
+### Metadatos
+* **Actor Principal:** Sistema
+* **Impacto en el Negocio:** Crítico
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencias:** `HU-01`, `HU-04`, `HU-07` + `HU-09`
+* **Habilita a:** `HU-12`
+
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Generación de Alertas Preventivas:** El sistema debe disparar automáticamente las alertas de mantenimiento antes de que ocurra la falla, basándose en los parámetros de kilometraje y reglas configuradas.
+2. **Procesamiento de Reglas Combinadas:** El motor de cálculo debe integrar la información del vehículo (`HU-01`), el kilometraje actualizado (`HU-04`) y las reglas de negocio por tipo (`HU-07/09`) para determinar la proximidad del servicio.
+3. **Persistencia del Estado Preventivo:** El sistema debe actualizar el tablero de control indicando los vehículos que requieren atención inmediata según los umbrales definidos, habilitando la gestión en `HU-12`.
+
+### Criterios de aceptación
+```gherkin
 Feature: Alerta automática por kilómetros
-
+ 
   Scenario: Generar alerta al alcanzar umbral
     Given vehículo con km 9500, regla cada 10000 km, umbral 500, último servicio a 0 km
     When el sistema evalúa las reglas
     Then genera alerta "PENDING" indicando servicio a 10000 km
-
+ 
   Scenario: No generar si está lejos del umbral
     Given vehículo con km 7000, regla cada 10000 km, umbral 500
     When evalúa
     Then no genera alerta
-
+ 
   Scenario: No duplicar alertas existentes
     Given vehículo con km 9600 y alerta "PENDING" existente para esa regla
     When evalúa
     Then no crea nueva alerta
-
+ 
+  Scenario: No evaluar vehículos inactivos
+    Given vehículo "INACTIVE" con km que supera umbral
+    When evalúa
+    Then no genera alerta
+ 
   Scenario: Alerta en umbral exacto
     Given vehículo con km 9500, regla cada 10000 km, umbral exacto 500
     When evalúa
     Then genera alerta "PENDING"
+```
 
 ## HU-12 Consultar y clasificar alertas
 
