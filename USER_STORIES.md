@@ -219,6 +219,16 @@ Feature: Asociación regla a tipo de vehículo
 **Quiero** generar una alerta automática cuando el kilometraje total de un vehículo alcance el límite definido de una regla      
 **Para** notificar oportunamente que ese vehículo requiere mantenimiento
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usuario es que es el nucleo del valor del producto ya que nos permite cambiar la gestion de reactiva a preventiva
+Como Actor tneemos al Sistema
+Dificultad: **Pendiente hablar con Javier**
+Impacto Critico
+Depende de HU-01, HU-04, HU-07+HU-09
+Habilita a HU-12
+
+
+
 ## HU-12 Consultar y clasificar alertas
 
 **Como** administrador de flota o conductor     
