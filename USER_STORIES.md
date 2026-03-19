@@ -163,6 +163,23 @@ Impacto Alto
 Depende de: Nada
 Habilita: HU-09, HU-06, HU-11, HU-14
 
+Feature: Creación de regla de mantenimiento
+
+  Scenario: Crear regla con intervalo km y umbral
+    When el administrador crea "Cambio de aceite" con intervalo 10000 km y umbral 500 km
+    Then la regla se crea con estado activo y queda disponible para asociar
+
+  Scenario: Rechazar regla sin nombre
+    When crea regla sin nombre
+    Then rechaza indicando que es obligatorio
+
+  Scenario: Rechazar intervalo en cero
+    When crea regla con intervalo km 0
+    Then rechaza indicando que debe ser mayor a cero
+
+  Scenario: Crear regla con umbral personalizado
+    When crea "Rotación de llantas" con 15000 km y umbral 1000 km
+    Then se crea con umbral de advertencia de 1000 km
 
 ## HU-09 Asociar regla a tipo de vehículo
 
