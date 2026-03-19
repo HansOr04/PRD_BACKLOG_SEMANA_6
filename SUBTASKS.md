@@ -21,3 +21,12 @@
 5. Implementar asociación obligatoria del conductor en recorded_by
 6. Exponer endpoint POST /api/vehicles/{placa}/mileage
 7. Implementar manejo de errores: vehículo no encontrado, conductor no especificado
+
+## HU-05 Validar coherencia del kilometraje
+
+### Rol: DEV
+1. Implementar validación: mileage_value debe ser mayor a cero
+2. Implementar manejo del caso inicial: si el vehículo no tiene kilometraje previo, aceptar cualquier valor mayor a cero
+3. Implementar validación: mileage_value debe ser mayor al current_mileage actual del vehículo
+4. Implementar advertencia en respuesta si el incremento supera 2000 km respecto al último registro (no bloquea el guardado)
+5. Implementar manejo de errores: km negativo, km igual o menor al actual
