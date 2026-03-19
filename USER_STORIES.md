@@ -6,6 +6,20 @@
 **Quiero** registrar un nuevo vehículo indicando su placa, marca, modelo, tipo combustible y tipo de vehículo       
 **Para** centralizar mi flota con la clasificación necesaria para aplicar reglas de mantenimiento.
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta HU es el punto de entrada del sistema. En si sin vehículos no hay nada. La asociación con tipo clave es porque las reglas se aplican por tipo
+Como Actores tenemos al Administrador 
+Dificultad **Pendiente revisar con Javier**
+Impacto en el negocio: Alto
+Reglas:
+Placa Unica
+VIN 17 caracteres
+Estado Inicial ACTIVE
+Tipo Obligatorio
+Depende de: Ninguna es la primera HU
+Habilita a HU-04, HU06. HU-11, HU-13
+
+
 ## HU-04 Registrar y acumular kilometraje
 
 **Como** conductor     
