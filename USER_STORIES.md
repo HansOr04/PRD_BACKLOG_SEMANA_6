@@ -270,6 +270,28 @@ Regla: Las aleras son clasificadas por estado
 Depende de HU-11
 Habilita a HU-13
 
+Feature: Consulta y clasificación de alertas
+
+  Scenario: Filtrar alertas por estado PENDING
+    Given existen 5 alertas PENDING, 3 WARNING y 2 OVERDUE
+    When el administrador filtra por estado "PENDING"
+    Then el sistema retorna las 5 alertas pendientes
+
+  Scenario: Consultar todas las alertas activas
+    Given existen alertas en diferentes estados
+    When el administrador consulta sin filtro de estado
+    Then retorna todas las alertas no resueltas con vehículo, regla, estado y fecha
+
+  Scenario: Alerta escala de WARNING a OVERDUE
+    Given una alerta en estado "WARNING" para un vehículo que superó el límite de km
+    When el sistema re-evalúa las alertas
+    Then el estado cambia a "OVERDUE"
+
+  Scenario: No mostrar alertas resueltas por defecto
+    Given existen 3 alertas "RESOLVED" y 2 "PENDING"
+    When el administrador consulta alertas activas
+    Then solo muestra las 2 "PENDING"
+
 ## HU-13 Registrar mantenimiento
 
 **Como** administrador de flota     
