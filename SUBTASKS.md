@@ -11,6 +11,10 @@
 6. Exponer endpoint POST /api/vehicles
 7. Retornar error claro si la placa ya existe, si el VIN es inválido o si el tipo de vehículo no fue encontrado
 
+## Rol QA
+1. Diseñar matriz de datos: válidos, placa duplicada, VIN inválido, sin tipo
+2. Automatizar 4 escenarios Gherkin con Serenity BDD + RestAssured
+
 ## HU-04: Registrar y acumular kilometraje
 
 ### Rol: DEV
