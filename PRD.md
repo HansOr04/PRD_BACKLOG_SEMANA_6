@@ -99,6 +99,16 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | Reportes PDF | Funcionalidad de valor agregado para versiones futuras  |
 | Multi-tenancy | MVP opera para una sola organización |
 
+## 4. Reglas de Negocio
+ 
+| ID | Regla | Ejemplo | HU |
+|----|-------|---------|-----|
+| RN-01 | Km registrado nunca menor al último valor | Último: 45,000 → no acepta 44,500 | HU-05 |
+| RN-02 | Alerta al alcanzar umbral de advertencia por km | Mant. a 10,000 km, umbral 500 → alerta a 9,500 | HU-11 |
+| RN-03 | Mantenimiento registrado resetea contador | Aceite a 10,200 → próximo a 20,200 | HU-14 |
+| RN-04 | Registro de km asociado a conductor | Trazabilidad y auditoría | HU-04 |
+| RN-05 | Reglas se asocian a tipos de vehículo | "Aceite 10,000 km" → todos tipo "Camioneta" | HU-09 |
+| RN-06 | Alertas clasificadas por estado | PENDING → WARNING → OVERDUE → RESOLVED | HU-12 |
 
 
 
