@@ -103,7 +103,7 @@ Feature: Registro y acumulación de kilometraje
 **Para** evitar que datos incorrectos dañen el acumulado del vehículo y provoquen alertas equivocadas
 
 
-### Análisis de Historia de Usuario (QA)
+## Análisis de Historia de Usuario (QA)
 
 ### Contexto de la HU
 Esta historia de usuario se desglosa de la anterior debido a su **lógica de validación compleja**. La precisión en el ingreso del kilometraje es crítica, ya que un dato incorrecto compromete la integridad de todos los cálculos y alertas posteriores del sistema.
@@ -300,7 +300,7 @@ Feature: Asociación regla a tipo de vehículo
 **Quiero** generar una alerta automática cuando el kilometraje total de un vehículo alcance el límite definido de una regla      
 **Para** notificar oportunamente que ese vehículo requiere mantenimiento
 
-# Análisis de Historia de Usuario (QA)
+## Análisis de Historia de Usuario (QA)
 
 ### Contexto de la HU
 Esta historia de usuario representa el núcleo del valor del producto. Su implementación permite la transición de una gestión de mantenimiento reactiva a una **preventiva**, siendo el componente crítico para la generación automatizada de alertas de servicio.
@@ -441,63 +441,95 @@ Feature: Registro de mantenimiento
 ```
 
 ## HU-14 Asociar mantenimiento a regla aplicada
-
-**Como** administrador de flota     
+`feature` `módulo: historial` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+>**Como** administrador de flota     
 **Quiero** vincular el mantenimiento registrado a la regla que lo originó       
 **Para** que el sistema reinicie el contador y sepa cuándo volver a generar una alerta para ese vehículo.
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usuario es que podemos hacer el cierre del ciclo preventivo, lo que nos permite que nuestro sistema sea ciclico
-Como actor tenemos al admin
-Dificultad: **Pendiente hablar con Javier**
-Impacto: Alto
-Depende de HU-13
-Habilita a : es un nuevo ciclo de alertas
+## Análisis de Historia de Usuario (QA)
 
+### Contexto de la HU
+Esta historia de usuario representa la finalización y el reinicio del flujo operativo. Al permitir el **cierre del ciclo preventivo**, el sistema se transforma en un modelo cíclico donde la ejecución de un mantenimiento habilita automáticamente la programación de la siguiente intervención, garantizando la continuidad operativa del vehículo.
+
+
+### Metadatos
+* **Actor Principal:** Administrador
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencia:** `HU-13`
+* **Habilita a:** Generación de un nuevo ciclo de alertas
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Reinicio de Parámetros:** Tras el cierre del ciclo actual, el sistema debe resetear los contadores o umbrales necesarios para iniciar el seguimiento del próximo intervalo de mantenimiento.
+2. **Generación de Siguiente Alerta:** El sistema debe calcular y programar automáticamente la nueva fecha o kilometraje de servicio basado en las reglas de negocio vigentes.
+3. **Continuidad del Flujo:** El estado del vehículo debe transicionar de "Servicio Realizado" a "Operativo / Ciclo Iniciado", permitiendo que el motor de alertas vuelva a monitorear el activo sin intervención manual adicional.
+
+### Criterios de aceptación
+```gherkin
 Feature: Asociación a regla y reseteo de contador
-
+ 
   Scenario: Asociar y resetear contador
     Given vehículo con km 10200 y regla "Cambio de aceite" cada 10000 km
     When se asocia el mantenimiento a esa regla
     Then el próximo servicio se programa a 20200 km
-
+ 
   Scenario: Asociar sin alerta previa (mantenimiento voluntario)
     Given vehículo sin alerta pendiente para "Rotación de llantas"
     When registra servicio y asocia a regla "Rotación de llantas"
     Then el contador se resetea desde el km actual
-
+ 
+  Scenario: Resolver alerta al asociar
+    Given vehículo con alerta "PENDING" para "Cambio de aceite"
+    When se asocia el mantenimiento a esa regla
+    Then la alerta cambia a "RESOLVED"
+    And el contador se resetea
+ 
   Scenario: Verificar cálculo correcto del próximo servicio
     Given vehículo con km 15300 y regla cada 15000 km
     When asocia mantenimiento a la regla
     Then próximo servicio programado a 30300 km
+```
 
 ## HU-16 Registrar fecha y km del servicio
-
-**Como** administrador de flota     
+`feature` `módulo: historial` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+>**Como** administrador de flota     
 **Quiero** registrar la fecha y los kilometros que llevaba al momento del mantenimiento     
 **Para** que el sistema calcule correctamente cuándo debe generarse la próxima alerta
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta Historia de usuario es que el servicio puede ser realizado en cualquier fecha y no se registro en el sistema, con lo cual puede diferir al momento de conocer el km actual
-El actor es administrador
-Dificultad: **Pendiente hablar con Javier**
-Impacto Medio
-Depende de HU-13
-Habilita a HU-14
+## Análisis de Historia de Usuario (QA)
 
+### Contexto de la HU
+Esta historia de usuario aborda la **desincronización temporal** de los datos. Reconoce que el servicio físico puede realizarse en una fecha distinta a su registro en el sistema, lo que genera una discrepancia entre el kilometraje (KM) registrado en el momento del mantenimiento y el KM actual del vehículo al momento de ingresar la información.
+
+### Metadatos
+* **Actor Principal:** Administrador
+* **Impacto en el Negocio:** Medio
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencia:** `HU-13`
+* **Habilita a:** `HU-14`
+
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Ingreso Retroactivo:** El sistema debe permitir al Administrador especificar la fecha real y el kilometraje exacto en el que se realizó el servicio, independientemente de la fecha actual de registro.
+2. **Validación de Consistencia:** El kilometraje ingresado para el servicio debe ser coherente con el historial; no puede ser inferior a un registro de mantenimiento previo, pero puede ser menor al kilometraje actual de circulación.
+3. **Ajuste de Próxima Alerta:** El cálculo para el siguiente ciclo de mantenimiento (`HU-14`) debe basarse en el kilometraje reportado del servicio realizado, y no en el kilometraje actual del vehículo, para mantener la frecuencia técnica correcta.
+
+### Criterios de aceptación
+```gherkin
 Feature: Registro de fecha y km del servicio
-
+ 
   Scenario: Registrar con fecha y km específicos del servicio
     Given un vehículo con km actual 10500
     When el administrador registra un servicio con fecha "2026-03-15" y km al servicio de 10200
     Then el registro almacena fecha "2026-03-15" y km 10200
     And el próximo mantenimiento se calcula desde los 10200 km
-
+ 
   Scenario: Rechazar km del servicio mayor al km actual del vehículo
     Given un vehículo con km actual 10500
     When el administrador registra con km al servicio de 11000
     Then el sistema rechaza indicando que el km no puede superar el actual
-
+ 
   Scenario: Rechazar fecha futura
     When el administrador registra un servicio con fecha "2027-01-01"
     Then el sistema rechaza indicando que la fecha no puede ser futura
+```
