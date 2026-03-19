@@ -54,3 +54,14 @@
 5. Registrar la regla con estado ACTIVE al momento de crearla
 6. Exponer endpoint POST /api/maintenance-rules
 7. Retornar error claro si el nombre está vacío o si el interval_km es cero o negativo
+
+## HU-09 Asociar regla a tipo de vehículo
+
+### Rol: DEV
+1. Crear la tabla rule_vehicle_type_assoc en la base de datos con campos: id, rule_id, vehicle_type_id, created_at
+2. Definir restricción única sobre la combinación rule_id + vehicle_type_id para evitar duplicados
+3. Vincular rule_vehicle_type_assoc con maintenance_rule mediante llave foránea en rule_id
+4. Vincular rule_vehicle_type_assoc con vehicle_type mediante llave foránea en vehicle_type_id
+5. Definir los DTOs de entrada (id de regla, id de tipo de vehículo) y de salida (asociación creada)
+6. Exponer endpoint POST /api/maintenance-rules/{id}/vehicle-types
+7. Retornar error claro si la asociación ya existe o si la regla o el tipo de vehículo no fueron encontrados
