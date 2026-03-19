@@ -119,7 +119,9 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 4. Cuando una alerta en estado WARNING supere el due_at_km del vehículo, cambiar su estado a OVERDUE automáticamente
 5. Retornar error claro si el estado enviado como filtro no es un valor válido
 
-
+### ROL QA
+1. Automatizar 4 escenarios Gherkin (filtrar, listar, escalar, ocultar resueltas)
+2. Probar transiciones: PENDING → WARNING → OVERDUE → RESOLVED
 
 ## HU-13 Registrar mantenimiento
 
@@ -133,6 +135,10 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 7. Si existe una alerta PENDING o WARNING asociada al vehículo y al tipo de servicio, cambiar su estado a RESOLVED al guardar el registro
 8. Exponer endpoint POST /api/vehicles/{placa}/maintenance
 9. Retornar error claro si el vehículo no existe o si el tipo de servicio no fue especificado
+
+### Rol QA
+1. Automatizar 3 escenarios Gherkin (completo, sin tipo, resolver alerta)
+2. Verificar que alerta cambia de estado correctamente
 
 ## HU-14 Asociar mantenimiento a regla aplicada
 
