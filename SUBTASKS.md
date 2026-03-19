@@ -30,18 +30,17 @@
 
 ## HU-04: Registrar y acumular kilometraje
 
-### Rol: DEV
-1. Crear la tabla mileage_log en la base de datos con campos: id, vehicle_id, mileage_value, recorded_at, recorded_by
-2. Vincular mileage_log con vehicle mediante llave foránea en vehicle_id
-3. Definir DTOs de entrada (placa, valor de km, conductor) y de salida (registro creado y current_mileage actualizado)
-4. Actualizar el current_mileage del vehículo cada vez que se registre un nuevo valor de km
-5. Asegurarse de que el conductor quede registrado en recorded_by, es un campo obligatorio
-6. Exponer endpoint POST /api/vehicles/{placa}/mileage
-7. Retornar error claro si el vehículo no existe o si el conductor no fue especificado
-
-### Rol QA
-1. Automatizar 2 escenarios Gherkin (registro exitoso, asociación conductor)
-2. Prueba de rendimiento: registro toma < 30 segundos
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Crear la tabla mileage_log en la base de datos con campos: id, vehicle_id, mileage_value, recorded_at, recorded_by |
+|     | 2 | Vincular mileage_log con vehicle mediante llave foránea en vehicle_id |
+|     | 3 | Definir DTOs de entrada (placa, valor de km, conductor) y de salida (registro creado y current_mileage actualizado) |
+|     | 4 | Actualizar el current_mileage del vehículo cada vez que se registre un nuevo valor de km |
+|     | 5 | Asegurarse de que el conductor quede registrado en recorded_by, es un campo obligatorio |
+|     | 6 | Exponer endpoint POST /api/vehicles/{placa}/mileage |
+|     | 7 | Retornar error claro si el vehículo no existe o si el conductor no fue especificado |
+| QA  | 1 | Automatizar 2 escenarios Gherkin (registro exitoso, asociación conductor) |
+|     | 2 | Prueba de rendimiento: registro toma < 30 segundos |
 
 ## HU-05 Validar coherencia del kilometraje
 
