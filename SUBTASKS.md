@@ -43,3 +43,14 @@
 4. Manejar el caso donde el vehículo no tiene reglas configuradas para su tipo
 5. Exponer endpoint GET /api/vehicles/{placa}/maintenance-status
 6. Retornar error claro si el vehículo no existe
+
+## HU-07 Crear regla con tipo de mantenimiento
+
+### Rol: DEV
+1. Crear la tabla maintenance_rule en la base de datos con campos: id, name, maintenance_type, interval_km, warning_threshold_km, status
+2. Definir los DTOs de entrada (nombre, tipo de mantenimiento, intervalo en km, umbral de advertencia) y de salida (regla creada con su estado)
+3. Verificar que el nombre sea obligatorio y que el interval_km sea mayor a cero
+4. Asegurarse de que el warning_threshold_km sea configurable y opcional, con un valor por defecto si no se especifica
+5. Registrar la regla con estado ACTIVE al momento de crearla
+6. Exponer endpoint POST /api/maintenance-rules
+7. Retornar error claro si el nombre está vacío o si el interval_km es cero o negativo
