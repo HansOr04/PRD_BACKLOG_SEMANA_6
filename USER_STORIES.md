@@ -5,3 +5,9 @@
 **Como** administrador de flota     
 **Quiero** registrar un nuevo vehículo indicando su placa, marca, modelo, tipo combustible y tipo de vehículo       
 **para** centralizar mi flota con la clasificación necesaria para aplicar reglas de mantenimiento.
+
+## HU-04 Registrar y acumular kilometraje
+
+**Como** conductor     
+**Quiero** registrar el kilometraje marcado en el odómetro de mi vehículo al terminar mi recorrido      
+**para** que el sistema mantenga el acumulado al día y pueda detectar cuando requiere mantenimiento.
