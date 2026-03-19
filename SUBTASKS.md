@@ -58,6 +58,11 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 5. Exponer endpoint GET /api/vehicles/{placa}/maintenance-status
 6. Retornar error claro si el vehículo no existe
 
+### Rol: QA
+1. Diseñar matriz: al día, próximo, vencido, múltiples reglas, sin reglas.
+
+2. Automatizar 4 escenarios Gherkin
+3. Prueba exploratoria: vehículo con 5+ reglas de diferentes tipos
 ## HU-07 Crear regla con tipo de mantenimiento
 
 ### Rol: DEV
