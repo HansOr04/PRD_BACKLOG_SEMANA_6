@@ -86,22 +86,14 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | Listar vehículos disponibles | Se difiere al Sprint 1 por alcance del MVP  |
 | Consultar reglas disponibles | Se difiere al Sprint 1, no bloquea el flujo de creación |
 | Modificar reglas existentes | Se difiere al Sprint 1 por alcance del MVP  |
+| Eliminar reglas | Riesgo de perder trazabilidad de mantenimientos anteriores |
+| Obtener historial por placa | Trazabilidad completa para Sprint 1 |
+| Generar alerta por tiempo | Requiere lógica de scheduler, complejidad alta para MVP |
+| Deshabilitar/habilitar vehículo | No bloquea el flujo preventivo del MVP |
+| Modificar vehículo por placa | MVP prioriza el registro inicial, los datos no son editables por ahora |
 
 
-Funcionalidad: Obtener historial por placa  
-Razón: Trazabilidad completa para Sprint 1 
 
-Funcionalidad: Generar alerta por tiempo        
-Razón: Requiere lógica de scheduler, complejidad alta para MVP 
-
-Funcionalidad: Eliminar reglas  
-Razón: Riesgo de perder trazabilidad de mantenimientos anteriores 
-
-Funcionalidad: Deshabilitar / habilitar vehículo    
-Razón: No bloquea el flujo preventivo del MVP 
-
-Funcionalidad: Modificar vehículo por placa     
-Razón: MVP prioriza el registro inicial, los datos no son editables por ahora
 
 Funcionalidad: GPS / Telemetría     
 Razón: Requiere integración con hardware externo
