@@ -76,3 +76,12 @@
 5. Antes de crear una alerta, revisar que no exista ya una en estado PENDING para ese vehículo y esa regla
 6. Configurar un proceso que corra automáticamente y revise todos los vehículos activos para generar alertas cuando corresponda
 7. Retornar error claro si el vehículo o la regla no fueron encontrados
+
+## HU-12 Consultar y clasificar alertas
+
+### Rol: DEV
+1. Exponer endpoint GET /api/alerts?status={estado} que permita filtrar alertas por estado de forma opcional
+2. Si no se especifica filtro, retornar todas las alertas que no estén en estado RESOLVED por defecto
+3. Incluir en la respuesta el vehículo, la regla, el estado y la fecha de cada alerta
+4. Cuando una alerta en estado WARNING supere el due_at_km del vehículo, cambiar su estado a OVERDUE automáticamente
+5. Retornar error claro si el estado enviado como filtro no es un valor válido
