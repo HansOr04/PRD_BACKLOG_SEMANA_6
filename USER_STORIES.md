@@ -50,12 +50,18 @@
 
 ## HU-13 Registrar mantenimiento
 
-**Como** administrador de flota
-**Quiero** registrar que un mantenimiento fue realizado sobre un vehículo
+**Como** administrador de flota     
+**Quiero** registrar que un mantenimiento fue realizado sobre un vehículo       
 **Para** dejar constancia del mantenimiento y cerrar la alerta generada
 
 ## HU-14 Asociar mantenimiento a regla aplicada
 
-**Como** administrador de flota
-**Quiero** vincular el mantenimiento registrado a la regla que lo originó
+**Como** administrador de flota     
+**Quiero** vincular el mantenimiento registrado a la regla que lo originó       
 **Para** que el sistema reinicie el contador y sepa cuándo volver a generar una alerta para ese vehículo.
+
+## HU-16 Registrar fecha y km del servicio
+
+**Como** administrador de flota     
+**Quiero** registrar la fecha y los kilometros que llevaba al momento del mantenimiento     
+**Para** que el sistema calcule correctamente cuándo debe generarse la próxima alerta
