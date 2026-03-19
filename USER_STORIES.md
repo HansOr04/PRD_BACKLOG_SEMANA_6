@@ -96,10 +96,10 @@ Feature: Validación de coherencia del kilometraje
     When se registra -100
     Then rechaza indicando que debe ser positivo
 
-  Scenario: Aceptar km igual al actual
+  Scenario: Rechazar km igual al actual
     Given km actual 45000
     When se registra 45000
-    Then acepta y el acumulado permanece en 45000
+    Then rechaza indicando que el kilometraje debe ser mayor al actual
 
   Scenario: Advertir incremento excesivo
     Given km actual 45000
@@ -115,7 +115,7 @@ Feature: Validación de coherencia del kilometraje
 Como QA analizo la historia de Usuario para colocar los criterios de aceptación
 El contexto de esta historia de usuario es que se necesita agregar una consulta activa del estado, ya que no podemos siempre esperar la alerta programada.
 Esto le permite en si al administrador que consulte en cualquier momento si un vehiculo necesita servicio
-Como actor tenemos al Sistema
+Como actor tenemos al administrador o conductor
 Dificultad: **Pendiente hablar con Javier**
 Impacto Alto
 Depende de: HU-01 HU-04, HU-07 + HU-09
@@ -203,11 +203,6 @@ Feature: Asociación regla a tipo de vehículo
     When el administrador los asocia
     Then todos los vehículos tipo "Camioneta" quedan sujetos a esa regla
 
-  Scenario: Asociar a múltiples tipos
-    Given regla "Revisión de frenos" y tipos "Camioneta" y "Sedán"
-    When asocia a ambos
-    Then la regla aplica para camionetas y sedanes
-
   Scenario: Rechazar asociación duplicada
     Given regla ya asociada a "Camioneta"
     When intenta asociar la misma regla al mismo tipo
@@ -243,11 +238,6 @@ Feature: Alerta automática por kilómetros
     Given vehículo con km 9600 y alerta "PENDING" existente para esa regla
     When evalúa
     Then no crea nueva alerta
-
-  Scenario: No evaluar vehículos inactivos
-    Given vehículo "INACTIVE" con km que supera umbral
-    When evalúa
-    Then no genera alerta
 
   Scenario: Alerta en umbral exacto
     Given vehículo con km 9500, regla cada 10000 km, umbral exacto 500
@@ -347,12 +337,6 @@ Feature: Asociación a regla y reseteo de contador
     Given vehículo sin alerta pendiente para "Rotación de llantas"
     When registra servicio y asocia a regla "Rotación de llantas"
     Then el contador se resetea desde el km actual
-
-  Scenario: Resolver alerta al asociar
-    Given vehículo con alerta "PENDING" para "Cambio de aceite"
-    When se asocia el mantenimiento a esa regla
-    Then la alerta cambia a "RESOLVED"
-    And el contador se resetea
 
   Scenario: Verificar cálculo correcto del próximo servicio
     Given vehículo con km 15300 y regla cada 15000 km
