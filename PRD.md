@@ -91,30 +91,15 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 | Generar alerta por tiempo | Requiere lógica de scheduler, complejidad alta para MVP |
 | Deshabilitar/habilitar vehículo | No bloquea el flujo preventivo del MVP |
 | Modificar vehículo por placa | MVP prioriza el registro inicial, los datos no son editables por ahora |
+| GPS / Telemetría | Requiere integración con hardware externo |
+| Gestión de combustible | MMódulo independiente, no relacionado al mantenimiento preventivo |
+| App móvil nativa | MVP opera como aplicación web |
+| Integración ERP | Depende de adaptadores específicos por cliente  |
+| SMS / WhatsApp | MVP no contempla notificaciones externas |
+| Reportes PDF | Funcionalidad de valor agregado para versiones futuras  |
+| Multi-tenancy | MVP opera para una sola organización |
 
 
-
-
-Funcionalidad: GPS / Telemetría     
-Razón: Requiere integración con hardware externo
-
-Funcionalidad: Gestión de combustible   
-Razón: Módulo independiente, no relacionado al mantenimiento preventivo
-
-Funcionalidad: App móvil nativa     
-Razón: MVP opera como aplicación web 
-
-Funcionalidad: Integración ERP  
-Razón: Depende de adaptadores específicos por cliente 
-
-Funcionalidad: SMS / WhatsApp   
-Razón: MVP no contempla notificaciones externas 
-
-Funcionalidad: Reportes PDF     
-Razón: Funcionalidad de valor agregado para versiones futuras 
-
-Funcionalidad: Multi-tenancy    
-Razón: MVP opera para una sola organización 
 
 
 ## Riesgos
