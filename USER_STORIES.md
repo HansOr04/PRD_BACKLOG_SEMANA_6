@@ -46,7 +46,14 @@ Feature: Registro de vehiculo con tipo asociado
 **Quiero** registrar el kilometraje marcado en el odómetro de mi vehículo al terminar mi recorrido      
 **Para** que el sistema mantenga el acumulado al día y pueda detectar cuando requiere mantenimiento.
 
-
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usuario es la acción mas frecuente del sistema.Sin los km actualizados, las alertas no pueden calcularse.
+Como actor tenemos al Conductor
+Dificultad **Pendiente hablar con Javier**
+Impacto Alto 
+Regla: Se debe asociar a un conductor 
+Depende de: HU-01
+Habilita a HU-05, HU-06, HU-11
 
 ## HU-05 Validar coherencia del kilometraje
 
