@@ -10,7 +10,7 @@
 **Quiero** registrar un nuevo vehículo indicando su placa, marca, modelo, tipo combustible y tipo de vehículo       
 **Para** centralizar mi flota con la clasificación necesaria para aplicar reglas de mantenimiento.
 
-# Análisis de Historia de Usuario (QA)
+## Análisis de Historia de Usuario (QA)
 
 ### **Contexto de la HU**
 Este es el **punto de entrada del sistema**; sin vehículos no existe flujo operativo. La asociación con el **Tipo** es fundamental, ya que las reglas de negocio se aplican de forma específica según esta categoría.
@@ -55,13 +55,13 @@ Feature: Registro de vehículo con tipo asociado
 ## Módulo 2: Registro de Kilometraje
 
 ## HU-04 Registrar y acumular kilometraje
-
+`feature` `módulo: kilometraje` `priority: ?` `SP: ?` `role: DEV` `role: QA`
 >**Como** conductor     
 **Quiero** registrar el kilometraje marcado en el odómetro de mi vehículo al terminar mi recorrido      
 **Para** que el sistema mantenga el acumulado al día y pueda detectar cuando requiere mantenimiento.
 
 
-# Análisis de Historia de Usuario (QA)
+## Análisis de Historia de Usuario (QA)
 
 ### **Contexto de la HU**
 Representa la **acción más frecuente del sistema**. Es crítica para el módulo de mantenimiento: sin la actualización constante de los kilómetros (KM), el sistema no puede calcular ni disparar las alertas preventivas.
@@ -97,86 +97,113 @@ Feature: Registro y acumulación de kilometraje
 
 
 ## HU-05 Validar coherencia del kilometraje
-
-**Como** sistema     
+`feature` `módulo: kilometraje` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+>**Como** sistema     
 **Quiero** validar la coherencia del kilometraje ingresado por el conductor      
 **Para** evitar que datos incorrectos dañen el acumulado del vehículo y provoquen alertas equivocadas
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de Usuario es que se separa de la anterior HU debido a que tiene logica de validacion compleja
-Ya que un Km incorrecto, podria arruinar por completo las alertas posteriores
-Como Actor tenemos al Sistema
-Dificultad **Pendiente hablar con Javier**
-Impacto Alto
-Regla Se utiliza la regla de negocio numero 1 que dice que no se puede tener un km menor al anterior registrado
-Depende de HU-04
-Habilita a : Integridad de HU-06 y HU-11
 
+### Análisis de Historia de Usuario (QA)
+
+### Contexto de la HU
+Esta historia de usuario se desglosa de la anterior debido a su **lógica de validación compleja**. La precisión en el ingreso del kilometraje es crítica, ya que un dato incorrecto compromete la integridad de todos los cálculos y alertas posteriores del sistema.
+
+
+### Metadatos
+* **Actor Principal:** Sistema
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencia:** `HU-04`
+* **Habilita a:** Integridad de `HU-06` y `HU-11`
+
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Validación de Secuencialidad (Regla #1):** El sistema debe impedir el registro de un kilometraje que sea inferior al último valor registrado para ese vehículo.
+2. **Integridad de Datos:** Cualquier intento de ingreso de un valor menor debe disparar una excepción de validación y bloquear la actualización de alertas dependientes.
+3. **Consistencia de Alertas:** El cálculo de las historias habilitadas (`HU-06`, `HU-11`) solo debe ejecutarse tras la validación exitosa de la regla de negocio número 1.
+
+```gherkin
 Feature: Validación de coherencia del kilometraje
-
+ 
   Scenario: Rechazar km menor al último
     Given un vehículo con km actual 45000
     When se registra 44500
     Then rechaza indicando que no puede ser menor a 45000
-
+ 
   Scenario: Rechazar km negativo
     When se registra -100
     Then rechaza indicando que debe ser positivo
-
-  Scenario: Rechazar km igual al actual
+ 
+  Scenario: Aceptar km igual al actual
     Given km actual 45000
     When se registra 45000
-    Then rechaza indicando que el kilometraje debe ser mayor al actual
-
+    Then acepta y el acumulado permanece en 45000
+ 
   Scenario: Advertir incremento excesivo
     Given km actual 45000
     When se registra 48000 (incremento > 2000 en un día)
     Then acepta con advertencia de incremento inusual
+```
+
 
 ## HU-06 Consultar estado de mantenimiento del vehículo
-
-**Como** administrador de flota o conductor     
+`feature` `módulo: kilometraje` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+>**Como** administrador de flota o conductor     
 **Quiero** consultar si existen mantenimientos pendientes del vehículo      
 **Para** tomar acciones oportunas antes de que se venza el límite definido en la regla
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usuario es que se necesita agregar una consulta activa del estado, ya que no podemos siempre esperar la alerta programada.
-Esto le permite en si al administrador que consulte en cualquier momento si un vehiculo necesita servicio
-Como actor tenemos al administrador o conductor
-Dificultad: **Pendiente hablar con Javier**
-Impacto Alto
-Depende de: HU-01 HU-04, HU-07 + HU-09
-Habilita a: En si complementa a HU-11
 
+##   Análisis de Historia de Usuario (QA)
+
+### Contexto de la HU
+Esta historia de usuario responde a la necesidad de implementar una **consulta activa del estado de mantenimiento**. El objetivo es eliminar la dependencia exclusiva de las alertas programadas, permitiendo una verificación proactiva en cualquier momento para determinar si un vehículo requiere servicio inmediato.
+
+### Metadatos
+* **Actores Principales:** Administrador / Conductor
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencias:** `HU-01`, `HU-04`, `HU-07` + `HU-09`
+* **Habilita a:** Complementa la funcionalidad de `HU-11`
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Consulta bajo Demanda:** El sistema debe permitir al usuario (Administrador o Conductor) solicitar el estado actual de servicio de un vehículo de forma manual y en tiempo real.
+2. **Sincronización de Datos:** La consulta debe integrar los datos de kilometraje (`HU-04`) y las reglas de validación (`HU-07/09`) para reflejar el estado más reciente.
+3. **Visibilidad de Estado:** El resultado de la consulta debe indicar claramente si el vehículo está en estado "Apto", "Próximo a Servicio" o "Servicio Requerido", basándose en los parámetros calculados.
+
+```gherkin
 Feature: Evaluación de estado de mantenimiento
-
+ 
   Scenario: Vehículo al día en mantenimiento
     Given un vehículo tipo "Camioneta" con km actual 5000
     And una regla "Cambio de aceite" cada 10000 km con umbral de 500 km asociada a "Camioneta"
     When el sistema evalúa el estado de mantenimiento del vehículo
     Then el estado es "AL_DIA"
     And indica que faltan 5000 km para el próximo servicio
-
+ 
   Scenario: Vehículo próximo a mantenimiento
     Given un vehículo tipo "Camioneta" con km actual 9600
     And una regla cada 10000 km con umbral de 500 km
     When el sistema evalúa el estado
     Then el estado es "PROXIMO"
     And indica que faltan 400 km para el servicio
-
+ 
   Scenario: Vehículo con mantenimiento vencido
     Given un vehículo tipo "Camioneta" con km actual 10500
     And una regla cada 10000 km
     When el sistema evalúa el estado
     Then el estado es "VENCIDO"
     And indica que se excedió por 500 km
-
+ 
   Scenario: Vehículo sin reglas asociadas a su tipo
     Given un vehículo tipo "Moto" sin reglas asociadas
     When el sistema evalúa el estado
     Then indica que no hay reglas de mantenimiento configuradas para ese tipo
+```
 
-## HU-07 Crear regla con tipo de mantenimiento
+## Módulo 3: Reglas de Mantenimiento
+
+### HU-07 Crear regla con tipo de mantenimiento
+`feature` `módulo: reglas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
 
 **Como** administrador de flota     
 **Quiero** crear una regla de mantenimiento preventivo indicando el tipo de mantenimiento y el intervalo de kilometros en que debe realizarse      
