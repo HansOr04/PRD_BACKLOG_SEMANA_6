@@ -98,3 +98,12 @@
 7. Si existe una alerta PENDING o WARNING asociada al vehículo y al tipo de servicio, cambiar su estado a RESOLVED al guardar el registro
 8. Exponer endpoint POST /api/vehicles/{placa}/maintenance
 9. Retornar error claro si el vehículo no existe o si el tipo de servicio no fue especificado
+
+## HU-14 Asociar mantenimiento a regla aplicada
+
+### Rol: DEV
+1. Calcular el próximo servicio sumando el interval_km de la regla al mileage_at_service del mantenimiento registrado y guardarlo en due_at_km
+2. Verificar que la regla que se quiere asociar corresponda al tipo del vehículo antes de vincularla
+3. Si el mantenimiento se registra sin una alerta previa, resetear el contador desde el mileage_at_service actual del vehículo igualmente
+4. Exponer endpoint PATCH /api/maintenance/{id}/rule
+5. Retornar error claro si la regla no existe o no corresponde al tipo del vehículo
