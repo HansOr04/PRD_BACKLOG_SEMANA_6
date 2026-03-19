@@ -70,7 +70,7 @@ Actor: Sistema
 Modulo Kilometraje  
 Historia de Usuario: HU-06  
 Funcionalidad: Consultar estado de mantenimiento del vehículo   
-Actor: Sistema
+Actor: Administrador de Flota o Conductor
 
 Modulo Reglas   
 Historia de Usuario: HU-07  
@@ -90,7 +90,7 @@ Actor: Sistema
 Modulo Alertas  
 Historia de Usuario: HU-12  
 Funcionalidad: Consultar y clasificar alertas por estado    
-Actor: Administrador de Flota
+Actor: Administrador de Flota o Conductor
 
 Modulo Historial    
 Historia de Usuario: HU-13  

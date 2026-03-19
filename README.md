@@ -13,8 +13,8 @@ Rol Dev | Javier Luis | Colombia
 
 | Actor | HU |
 |-------|----|
-| Administrador de flota | HU-01, HU-06 HU-07, HU-09, HU-12 HU-13, HU-14, HU-16 |
-| Conductor | HU-04, HU-12 |
+| Administrador de flota | HU-01, HU-06, HU-07, HU-09, HU-12, HU-13, HU-14, HU-16 |
+| Conductor | HU-04, HU-06, HU-12 |
 | Sistema automático | HU-05, HU-11 |
 
 ## Entregables 
@@ -33,7 +33,7 @@ Rol Dev | Javier Luis | Colombia
 | Vehículos | HU-01 | 3 |
 | Kilometraje | HU-04, HU-05, HU-06 | 8 |
 | Reglas | HU-07, HU-09 | 8 |
-| Alertas | HU-11, HU12 | 5 |
+| Alertas | HU-11, HU-12 | 5 |
 | Historail | HU-13, HU-14, HU-16 | 8 |
 
 ## Convenciones de Commits 
