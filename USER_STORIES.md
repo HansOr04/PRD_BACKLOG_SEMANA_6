@@ -239,6 +239,21 @@ Feature: Alerta automática por kilómetros
     When evalúa
     Then no genera alerta
 
+  Scenario: No duplicar alertas existentes
+    Given vehículo con km 9600 y alerta "PENDING" existente para esa regla
+    When evalúa
+    Then no crea nueva alerta
+
+  Scenario: No evaluar vehículos inactivos
+    Given vehículo "INACTIVE" con km que supera umbral
+    When evalúa
+    Then no genera alerta
+
+  Scenario: Alerta en umbral exacto
+    Given vehículo con km 9500, regla cada 10000 km, umbral exacto 500
+    When evalúa
+    Then genera alerta "PENDING"
+
 ## HU-12 Consultar y clasificar alertas
 
 **Como** administrador de flota o conductor     
