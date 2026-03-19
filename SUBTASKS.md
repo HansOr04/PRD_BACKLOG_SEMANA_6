@@ -41,6 +41,10 @@
 
 Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
 
+## ROL QA
+1. Diseñar matriz de datos de borde: menor, negativo, igual, excesivo
+2. Automatizar 4 escenarios Gherkin
+
 ## HU-06: Consultar estado de mantenimiento del vehículo
 
 ### Rol: DEV
