@@ -2,11 +2,12 @@
  
 **Sofware:** FleetGuard — Gestión de Flota y Mantenimiento Automotriz  
 **Fecha:** 18/03/2026
+
 **Equipo:**
  
 | Rol | Integrante | País |
 |-----|-----------|------|
-| QA  | Hans  Ortiz | Ecuador |
+| QA  | Hans Ortiz | Ecuador |
 | DEV | Javier Luis | Colombia |
 
 ## Problema a resolver

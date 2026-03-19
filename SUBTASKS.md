@@ -1,4 +1,18 @@
-# SUBTASKS.md — Tasking por Historia de Usuario
+# SUBTASKS.md — Tasking y Estimación por Historia de Usuario
+
+**Software:** FleetGuard — Gestión de Flota y Mantenimiento Automotriz  
+**Fecha:** 18/03/2026  
+
+**Equipo:**
+
+| Rol | Integrante | País |
+|-----|-----------|------|
+| QA  | Hans Ortiz | Ecuador |
+| DEV | Javier Luis | Colombia |
+
+---
+
+> Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada Historia de Usuario del MVP, junto con su estimación en Story Points.
 
 ## HU-01: Registrar vehículo con tipo asociado
 
