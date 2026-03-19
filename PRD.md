@@ -36,13 +36,13 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 Persona: Carlos - Jefe de operaciones, logistica (25 vehículos)
 Dolor: Revisa excel para saber cuál vehículo necesita servicio. 3 fallas en carretera este año.
 Necesidad: Sistema que le diga qué vehículo necesita mantenimiento y cuándo.
-HU relacionadas: HU-01, HU-07, HU-09, HU-13, HU-14.
+HU relacionadas: HU-01, HU-06, HU-07, HU-09, HU-12, HU-13, HU-14, HU-16.
 
 ### Conductor
 Persona: María' Condutora de reparto
 Dolor: No puede reportar de forma rapida el kilometraje de su vehiculo
 Necesidad: Registro rapido del kilometraje
-HU relacionadas: HU-04
+HU relacionadas: HU-04, HU-06, HU-12
 
 ### Sistema Automatico
 Descripcion: Sistema backend que valida datos y genera alertas sin intervención humana.
