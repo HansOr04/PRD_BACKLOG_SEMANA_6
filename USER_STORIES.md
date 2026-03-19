@@ -336,6 +336,29 @@ Impacto: Alto
 Depende de HU-13
 Habilita a : es un nuevo ciclo de alertas
 
+Feature: Asociación a regla y reseteo de contador
+
+  Scenario: Asociar y resetear contador
+    Given vehículo con km 10200 y regla "Cambio de aceite" cada 10000 km
+    When se asocia el mantenimiento a esa regla
+    Then el próximo servicio se programa a 20200 km
+
+  Scenario: Asociar sin alerta previa (mantenimiento voluntario)
+    Given vehículo sin alerta pendiente para "Rotación de llantas"
+    When registra servicio y asocia a regla "Rotación de llantas"
+    Then el contador se resetea desde el km actual
+
+  Scenario: Resolver alerta al asociar
+    Given vehículo con alerta "PENDING" para "Cambio de aceite"
+    When se asocia el mantenimiento a esa regla
+    Then la alerta cambia a "RESOLVED"
+    And el contador se resetea
+
+  Scenario: Verificar cálculo correcto del próximo servicio
+    Given vehículo con km 15300 y regla cada 15000 km
+    When asocia mantenimiento a la regla
+    Then próximo servicio programado a 30300 km
+    
 ## HU-16 Registrar fecha y km del servicio
 
 **Como** administrador de flota     
