@@ -121,7 +121,23 @@ Impacto Alto
 Depende de: HU-01 HU-04, HU-07 + HU-09
 Habilita a: En si complementa a HU-11
 
+Feature: Evaluación de estado de mantenimiento
 
+  Scenario: Vehículo al día en mantenimiento
+    Given un vehículo tipo "Camioneta" con km actual 5000
+    And una regla "Cambio de aceite" cada 10000 km con umbral de 500 km asociada a "Camioneta"
+    When el sistema evalúa el estado de mantenimiento del vehículo
+    Then el estado es "AL_DIA"
+    And indica que faltan 5000 km para el próximo servicio
+
+  Scenario: Vehículo próximo a mantenimiento
+    Given un vehículo tipo "Camioneta" con km actual 9600
+    And una regla cada 10000 km con umbral de 500 km
+    When el sistema evalúa el estado
+    Then el estado es "PROXIMO"
+    And indica que faltan 400 km para el servicio
+
+  
 
 ## HU-07 Crear regla con tipo de mantenimiento
 
