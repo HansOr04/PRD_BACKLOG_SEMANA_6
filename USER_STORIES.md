@@ -260,6 +260,16 @@ Feature: Alerta automática por kilómetros
 **Quiero** consultar las alertas activas que tiene un vehículo y poderlas clasificar según su estado      
 **Para** priorizar los mantenimientos más urgentes y mantener el vehículo al día y en operación
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usuario es para cuando con multiples vehiculos el admin necesita saber cuales son urgentes vs cuales tienen margen.
+Esta clasificacion permite toma de decisiones rapida
+Como actor tenemos al administrados
+Dificultad: **Pendiente hablar con Javier**
+Impacto Alto
+Regla: Las aleras son clasificadas por estado
+Depende de HU-11
+Habilita a HU-13
+
 ## HU-13 Registrar mantenimiento
 
 **Como** administrador de flota     
