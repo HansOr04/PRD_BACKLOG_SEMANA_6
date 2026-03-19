@@ -137,7 +137,17 @@ Feature: Evaluación de estado de mantenimiento
     Then el estado es "PROXIMO"
     And indica que faltan 400 km para el servicio
 
-  
+  Scenario: Vehículo con mantenimiento vencido
+    Given un vehículo tipo "Camioneta" con km actual 10500
+    And una regla cada 10000 km
+    When el sistema evalúa el estado
+    Then el estado es "VENCIDO"
+    And indica que se excedió por 500 km
+
+  Scenario: Vehículo sin reglas asociadas a su tipo
+    Given un vehículo tipo "Moto" sin reglas asociadas
+    When el sistema evalúa el estado
+    Then indica que no hay reglas de mantenimiento configuradas para ese tipo
 
 ## HU-07 Crear regla con tipo de mantenimiento
 
