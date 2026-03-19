@@ -58,22 +58,18 @@
 
 ## HU-06: Consultar estado de mantenimiento del vehículo
 
-### Rol: DEV
-1. Consultar las reglas de mantenimiento que aplican según el tipo del vehículo
-2. Comparar el kilometraje actual current_mileage, del vehículo contra el intervalo definido en cada regla
-3. Determinar el estado del vehículo según la comparación:
-   - AL_DIA: le faltan más km que el umbral para el próximo servicio
-   - PROXIMO: está dentro del rango de advertencia
-   - VENCIDO: ya superó el km límite definido en la regla
-4. Manejar el caso donde el vehículo no tiene reglas configuradas para su tipo
-5. Exponer endpoint GET /api/vehicles/{placa}/maintenance-status
-6. Retornar error claro si el vehículo no existe
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Consultar las reglas de mantenimiento que aplican según el tipo del vehículo |
+|     | 2 | Comparar el current_mileage del vehículo contra el intervalo definido en cada regla |
+|     | 3 | Determinar el estado del vehículo según la comparación: AL_DIA (faltan más km que el umbral), PROXIMO (dentro del rango de advertencia), VENCIDO (superó el km límite) |
+|     | 4 | Manejar el caso donde el vehículo no tiene reglas configuradas para su tipo |
+|     | 5 | Exponer endpoint GET /api/vehicles/{placa}/maintenance-status |
+|     | 6 | Retornar error claro si el vehículo no existe |
+| QA  | 1 | Diseñar matriz: al día, próximo, vencido, múltiples reglas, sin reglas |
+|     | 2 | Automatizar 4 escenarios Gherkin |
+|     | 3 | Prueba exploratoria: vehículo con 5+ reglas de diferentes tipos |
 
-### Rol: QA
-1. Diseñar matriz: al día, próximo, vencido, múltiples reglas, sin reglas.
-
-2. Automatizar 4 escenarios Gherkin
-3. Prueba exploratoria: vehículo con 5+ reglas de diferentes tipos
 ## HU-07 Crear regla con tipo de mantenimiento
 
 ### Rol: DEV
