@@ -29,3 +29,9 @@
 **Como** administrador de flota     
 **Quiero** crear una regla de mantenimiento preventivo indicando el tipo de mantenimiento y el intervalo de kilometros en que debe realizarse      
 **Para** tener definidas las condiciones bajo las cuales el sistema debe alertar que un vehículo requiere intervención 
+
+## HU-09 Asociar regla a tipo de vehículo
+
+**Como** administrador de flota     
+**Quiero** asociar un regla de mantenimiento a un tipo de vehículo      
+**Para** que el sistema sepa qué condiciones de mantenimiento aplican a cada vehículo de la flota 
