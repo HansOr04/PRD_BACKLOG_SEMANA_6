@@ -41,3 +41,9 @@
 **Como** sistema     
 **Quiero** generar una alerta automática cuando el kilometraje total de un vehículo alcance el límite definido de una regla      
 **Para** notificar oportunamente que ese vehículo requiere mantenimiento
+
+## HU-12 Consultar y clasificar alertas
+
+**Como** administrador de flota o conductor     
+**Quiero** consultar las alertas activas que tiene un vehículo y poderlas clasificar según su estado      
+**Para** priorizar los mantenimientos más urgentes y mantener el vehículo al día y en operación
