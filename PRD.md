@@ -54,10 +54,11 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 - **Interacción:** Solo registra kilometraje.
 - **HU:** HU-04.
 
-
-### Sistema Automatico
-Descripcion: Sistema backend que valida datos y genera alertas sin intervención humana.
-HU relacionadas: HU-05, HU-11.
+### 2.3 Sistema Automático (Actor No Humano)
+ 
+- **Descripción:** Backend que valida datos, evalúa estado de mantenimiento y genera alertas sin intervención humana.
+- **Interacción:** Vía scheduler o eventos post-registro.
+- **HU:** HU-05, HU-06, HU-11.
 
 ### Alcance MVP
 
