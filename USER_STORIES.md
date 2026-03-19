@@ -1,72 +1,99 @@
 # USER_STORIES.md — Historias de Usuario FleetGuard
 
-## HU-01: Registrar vehículo con tipo asociado
+**Total:** 11 HU | **Actores:** Administrador (7) · Conductor (1) · Sistema (3)
 
-**Como** administrador de flota     
+## Módulo 1: Gestión de Vehículos
+
+## HU-01: Registrar vehículo con tipo asociado
+`feature` `módulo: vehículos` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+>**Como** administrador de flota
 **Quiero** registrar un nuevo vehículo indicando su placa, marca, modelo, tipo combustible y tipo de vehículo       
 **Para** centralizar mi flota con la clasificación necesaria para aplicar reglas de mantenimiento.
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta HU es el punto de entrada del sistema. En si sin vehículos no hay nada. La asociación con tipo clave es porque las reglas se aplican por tipo
-Como Actores tenemos al Administrador 
-Dificultad **Pendiente revisar con Javier**
-Impacto en el negocio: Alto
-Reglas:
-Placa Unica
-VIN 17 caracteres
-Estado Inicial ACTIVE
-Tipo Obligatorio
-Depende de: Ninguna es la primera HU
-Habilita a HU-04, HU06. HU-11, HU-13
+# Análisis de Historia de Usuario (QA)
 
-Feature: Registro de vehiculo con tipo asociado
-    Scenario: Registro exitoso con datos validos
-        Given un tipo de vehiculo "Camioneta" registrado en el sistema
-        And no existe un vehiculo con placa "ABC-1234"
-        When el administrador registra un vehiculo con placa "ABC-1234", marca "Toyota", modelo "Hilux", año 2023, combustible "Diesel", VIN "1HGBH41JXMN109186"  y tipo "Camioneta"
-        Then el vehículo se crea con estado "ACTIVE" y kilometraje inicial del vehiculo
-        
-    Scenario: Rechazar placa duplicada
-        Given ya existe un vehículo con placa "ABC-1234"
-        When el administrador intenta registrar otro con placa "ABC-1234"
-        Then el sistema rechaza indicando que la placa ya está en uso
+### **Contexto de la HU**
+Este es el **punto de entrada del sistema**; sin vehículos no existe flujo operativo. La asociación con el **Tipo** es fundamental, ya que las reglas de negocio se aplican de forma específica según esta categoría.
 
-    Scenario: Rechazar VIN inválido
-        When el administrador registra un vehículo con VIN "12345"
-        Then el sistema rechaza indicando que el VIN debe tener 17 caracteres
+### **Metadatos**
+* **Actor Principal:** Administrador
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** *Pendiente revisar con Javier*
+* **Dependencia:** Ninguna (Es la HU inicial)
+* **Habilita a:** `HU-04`, `HU-06`, `HU-11`, `HU-13`
 
-    Scenario: Rechazar sin tipo de vehículo
-        When el administrador registra un vehículo sin tipo asociado
-        Then el sistema rechaza indicando que el tipo es obligatorio
+### **Reglas de Negocio**
+1.  **Placa Única:** El sistema no debe permitir el registro de dos vehículos con la misma placa.
+2.  **Validación de VIN:** El campo VIN debe contener estrictamente **17 caracteres**.
+3.  **Estado Inicial:** Al crearse, el vehículo debe quedar automáticamente en estado `ACTIVE`.
+4.  **Tipo Obligatorio:** El campo "Tipo" es mandatorio para proceder con el registro (determina las reglas aplicables).
 
+### Criterios de aceptación
+
+```gherkin
+Feature: Registro de vehículo con tipo asociado
+ 
+  Scenario: Registro exitoso con datos válidos
+    Given un tipo de vehículo "Camioneta" registrado en el sistema
+    And no existe un vehículo con placa "ABC-1234"
+    When el administrador registra un vehículo con placa "ABC-1234", marca "Toyota", modelo "Hilux", año 2023, combustible "Diesel", VIN "1HGBH41JXMN109186" y tipo "Camioneta"
+    Then el vehículo se crea con estado "ACTIVE" y kilometraje inicial 0
+ 
+  Scenario: Rechazar placa duplicada
+    Given ya existe un vehículo con placa "ABC-1234"
+    When el administrador intenta registrar otro con placa "ABC-1234"
+    Then el sistema rechaza indicando que la placa ya está en uso
+ 
+  Scenario: Rechazar VIN inválido
+    When el administrador registra un vehículo con VIN "12345"
+    Then el sistema rechaza indicando que el VIN debe tener 17 caracteres
+ 
+  Scenario: Rechazar sin tipo de vehículo
+    When el administrador registra un vehículo sin tipo asociado
+    Then el sistema rechaza indicando que el tipo es obligatorio
+```
+## Módulo 2: Registro de Kilometraje
 
 ## HU-04 Registrar y acumular kilometraje
 
-**Como** conductor     
+>**Como** conductor     
 **Quiero** registrar el kilometraje marcado en el odómetro de mi vehículo al terminar mi recorrido      
 **Para** que el sistema mantenga el acumulado al día y pueda detectar cuando requiere mantenimiento.
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usuario es la acción mas frecuente del sistema.Sin los km actualizados, las alertas no pueden calcularse.
-Como actor tenemos al Conductor
-Dificultad **Pendiente hablar con Javier**
-Impacto Alto 
-Regla: Se debe asociar a un conductor 
-Depende de: HU-01
-Habilita a HU-05, HU-06, HU-11
 
+# Análisis de Historia de Usuario (QA)
+
+### **Contexto de la HU**
+Representa la **acción más frecuente del sistema**. Es crítica para el módulo de mantenimiento: sin la actualización constante de los kilómetros (KM), el sistema no puede calcular ni disparar las alertas preventivas.
+
+
+### **Metadatos**
+* **Actor Principal:** Conductor
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** *Pendiente hablar con Javier*
+* **Dependencia:** `HU-01`
+* **Habilita a:** `HU-05`, `HU-06`, `HU-11`
+
+### **Reglas de Negocio (Criterios de Aceptación)**
+1.  **Asociación de Conductor:** El registro de kilometraje debe estar vinculado obligatoriamente a un **Conductor**.
+2.  **Cálculo de Alertas:** La actualización de los KM debe disparar automáticamente el recalculado de los próximos mantenimientos.
+3.  **Frecuencia Operativa:** El sistema debe estar optimizado para este ingreso de datos, dado que es la acción de mayor concurrencia.
+
+
+```gherkin
 Feature: Registro y acumulación de kilometraje
-
+ 
   Scenario: Registro exitoso
     Given un vehículo "ACTIVE" con placa "ABC-1234" y km actual 45000
     When el conductor "María Torres" registra 45350 km
     Then se crea registro con valor 45350, fecha actual y conductor "María Torres"
     And el km acumulado del vehículo se actualiza a 45350
-
+ 
   Scenario: Registro asocia conductor responsable
     Given un vehículo activo
     When el conductor "María Torres" registra 46000 km
     Then el registro queda asociado a "María Torres" con fecha y hora actual
+```
 
 
 ## HU-05 Validar coherencia del kilometraje
