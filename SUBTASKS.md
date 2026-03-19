@@ -85,20 +85,19 @@
 |     | 2 | Automatizar 4 escenarios Gherkin |
 |     | 3 | Prueba exploratoria: valores límite (intervalos muy altos/bajos) |
 
-## HU-09 Asociar regla a tipo de vehículo
+## HU-09: Asociar regla a tipo de vehículo
 
-### Rol: DEV
-1. Crear la tabla rule_vehicle_type_assoc en la base de datos con campos: id, rule_id, vehicle_type_id, created_at
-2. Definir restricción única sobre la combinación rule_id + vehicle_type_id para evitar duplicados
-3. Vincular rule_vehicle_type_assoc con maintenance_rule mediante llave foránea en rule_id
-4. Vincular rule_vehicle_type_assoc con vehicle_type mediante llave foránea en vehicle_type_id
-5. Definir los DTOs de entrada (id de regla, id de tipo de vehículo) y de salida (asociación creada)
-6. Exponer endpoint POST /api/maintenance-rules/{id}/vehicle-types
-7. Retornar error claro si la asociación ya existe o si la regla o el tipo de vehículo no fueron encontrados
-
-### Rol: QA
-1. Automatizar 3 escenarios Gherkin (uno, múltiples, duplicado)
-2. Verificar que asociación se refleja en evaluación (HU-06 y HU-11)
+| Rol | # | Tarea |
+|-----|---|-------|
+| DEV | 1 | Crear la tabla rule_vehicle_type_assoc en la base de datos con campos: id, rule_id, vehicle_type_id, created_at |
+|     | 2 | Definir restricción única sobre la combinación rule_id + vehicle_type_id para evitar duplicados |
+|     | 3 | Vincular rule_vehicle_type_assoc con maintenance_rule mediante llave foránea en rule_id |
+|     | 4 | Vincular rule_vehicle_type_assoc con vehicle_type mediante llave foránea en vehicle_type_id |
+|     | 5 | Definir DTOs de entrada (id de regla, id de tipo de vehículo) y de salida (asociación creada) |
+|     | 6 | Exponer endpoint POST /api/maintenance-rules/{id}/vehicle-types |
+|     | 7 | Retornar error claro si la asociación ya existe o si la regla o el tipo de vehículo no fueron encontrados |
+| QA  | 1 | Automatizar 3 escenarios Gherkin (uno, múltiples, duplicado) |
+|     | 2 | Verificar que la asociación se refleja correctamente en la evaluación de HU-06 y HU-11 |
 
 ## HU-11 Generar alerta automática por kilometraje
 
