@@ -155,6 +155,15 @@ Feature: Evaluación de estado de mantenimiento
 **Quiero** crear una regla de mantenimiento preventivo indicando el tipo de mantenimiento y el intervalo de kilometros en que debe realizarse      
 **Para** tener definidas las condiciones bajo las cuales el sistema debe alertar que un vehículo requiere intervención 
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usuario es que es el corazon del sistema ya que sin reglas no hay alertas
+Como actor tenemos al administrador
+Dificultad **Pendiente hablar con Javier**
+Impacto Alto
+Depende de: Nada
+Habilita: HU-09, HU-06, HU-11, HU-14
+
+
 ## HU-09 Asociar regla a tipo de vehículo
 
 **Como** administrador de flota     
