@@ -60,19 +60,14 @@ Desarrollar una aplicación que permita a Automotive gestionar de forma centrali
 - **Interacción:** Vía scheduler o eventos post-registro.
 - **HU:** HU-05, HU-06, HU-11.
 
-### Alcance MVP
+## 3. Alcance del MVP
+ 
+### 3.1 IN — 11 Historias de Usuario
 
-### IN- 11 Historias de Usuario
-
-Modulo Vehiculos    
-Historia de Usuario: HU-01  
-Funcionalidad: Registrar vehiculo con tipo asociado     
-Actor: Administrador de Flota
-
-Modulo Kilometraje  
-Historia de Usuario: HU-04  
-Funcionalidad: Registrar y acumular kilometraje     
-Actor: Conductor
+| Módulo | HU | Funcionalidad | Actor |
+|--------|-----|--------------|-------|
+| **Vehículos** | HU-01 | Registrar vehículo con tipo asociado | Administrador |
+| **Kilometraje** | HU-04 | Registrar y acumular kilometraje | Conductor |
 
 Modulo Kilometraje  
 Historia de Usuario: HU-05  
