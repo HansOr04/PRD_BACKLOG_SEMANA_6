@@ -109,3 +109,11 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 3. Si el mantenimiento se registra sin una alerta previa, resetear el contador desde el mileage_at_service actual del vehículo igualmente
 4. Exponer endpoint PATCH /api/maintenance/{id}/rule
 5. Retornar error claro si la regla no existe o no corresponde al tipo del vehículo
+
+## HU-16 Registrar fecha y km del servicio
+
+### Rol: DEV
+1. Asegurarse de que los campos performed_at y mileage_at_service se reciban en los datos de entrada del registro de mantenimiento y queden guardados correctamente
+2. Verificar que el mileage_at_service no sea mayor al current_mileage actual del vehículo al momento del registro
+3. Verificar que el performed_at no sea una fecha futura
+4. Retornar error claro si el km del servicio supera el actual o si la fecha ingresada es futura
