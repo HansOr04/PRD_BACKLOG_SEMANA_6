@@ -79,7 +79,7 @@ Representa la **acción más frecuente del sistema**. Es crítica para el módul
 2.  **Cálculo de Alertas:** La actualización de los KM debe disparar automáticamente el recalculado de los próximos mantenimientos.
 3.  **Frecuencia Operativa:** El sistema debe estar optimizado para este ingreso de datos, dado que es la acción de mayor concurrencia.
 
-
+### Criterios de aceptación
 ```gherkin
 Feature: Registro y acumulación de kilometraje
  
@@ -117,11 +117,12 @@ Esta historia de usuario se desglosa de la anterior debido a su **lógica de val
 * **Habilita a:** Integridad de `HU-06` y `HU-11`
 
 
-### Reglas de Negocio (Criterios de Aceptación)
+### Reglas de Negocio
 1. **Validación de Secuencialidad (Regla #1):** El sistema debe impedir el registro de un kilometraje que sea inferior al último valor registrado para ese vehículo.
 2. **Integridad de Datos:** Cualquier intento de ingreso de un valor menor debe disparar una excepción de validación y bloquear la actualización de alertas dependientes.
 3. **Consistencia de Alertas:** El cálculo de las historias habilitadas (`HU-06`, `HU-11`) solo debe ejecutarse tras la validación exitosa de la regla de negocio número 1.
 
+### Criterios de aceptación
 ```gherkin
 Feature: Validación de coherencia del kilometraje
  
@@ -165,11 +166,12 @@ Esta historia de usuario responde a la necesidad de implementar una **consulta a
 * **Dependencias:** `HU-01`, `HU-04`, `HU-07` + `HU-09`
 * **Habilita a:** Complementa la funcionalidad de `HU-11`
 
-### Reglas de Negocio (Criterios de Aceptación)
+### Reglas de Negocio
 1. **Consulta bajo Demanda:** El sistema debe permitir al usuario (Administrador o Conductor) solicitar el estado actual de servicio de un vehículo de forma manual y en tiempo real.
 2. **Sincronización de Datos:** La consulta debe integrar los datos de kilometraje (`HU-04`) y las reglas de validación (`HU-07/09`) para reflejar el estado más reciente.
 3. **Visibilidad de Estado:** El resultado de la consulta debe indicar claramente si el vehículo está en estado "Apto", "Próximo a Servicio" o "Servicio Requerido", basándose en los parámetros calculados.
 
+### Criterios de aceptación
 ```gherkin
 Feature: Evaluación de estado de mantenimiento
  
@@ -205,62 +207,91 @@ Feature: Evaluación de estado de mantenimiento
 ### HU-07 Crear regla con tipo de mantenimiento
 `feature` `módulo: reglas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
 
-**Como** administrador de flota     
+>**Como** administrador de flota     
 **Quiero** crear una regla de mantenimiento preventivo indicando el tipo de mantenimiento y el intervalo de kilometros en que debe realizarse      
 **Para** tener definidas las condiciones bajo las cuales el sistema debe alertar que un vehículo requiere intervención 
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usuario es que es el corazon del sistema ya que sin reglas no hay alertas
-Como actor tenemos al administrador
-Dificultad **Pendiente hablar con Javier**
-Impacto Alto
-Depende de: Nada
-Habilita: HU-09, HU-06, HU-11, HU-14
+## Análisis de Historia de Usuario (QA)
 
+### Contexto de la HU
+Esta historia de usuario representa el núcleo del sistema. Define la configuración de las reglas de negocio necesarias para el funcionamiento de todo el módulo de notificaciones; sin estas reglas, la generación de alertas es inexistente.
+
+---
+
+### Metadatos
+* **Actor Principal:** Administrador
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencia:** Ninguna
+* **Habilita a:** `HU-09`, `HU-06`, `HU-11`, `HU-14`
+
+---
+
+### Reglas de Negocio
+1. **Definición de Parámetros:** El sistema debe permitir al Administrador configurar las reglas base que dispararán las alertas posteriores.
+2. **Disponibilidad Global:** Las reglas configuradas deben estar disponibles para ser consumidas por los módulos dependientes (`HU-09`, `HU-06`, `HU-11`, `HU-14`).
+3. **Persistencia de Configuración:** Cualquier cambio en las reglas debe validarse antes de guardarse para asegurar que el motor de alertas no quede inactivo.
+
+### Criterios de aceptación
+```gherkin
 Feature: Creación de regla de mantenimiento
-
+ 
   Scenario: Crear regla con intervalo km y umbral
     When el administrador crea "Cambio de aceite" con intervalo 10000 km y umbral 500 km
     Then la regla se crea con estado activo y queda disponible para asociar
-
+ 
   Scenario: Rechazar regla sin nombre
     When crea regla sin nombre
     Then rechaza indicando que es obligatorio
-
+ 
   Scenario: Rechazar intervalo en cero
     When crea regla con intervalo km 0
     Then rechaza indicando que debe ser mayor a cero
-
+ 
   Scenario: Crear regla con umbral personalizado
     When crea "Rotación de llantas" con 15000 km y umbral 1000 km
     Then se crea con umbral de advertencia de 1000 km
+```
 
 ## HU-09 Asociar regla a tipo de vehículo
+`feature` `módulo: reglas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
 
-**Como** administrador de flota     
+>**Como** administrador de flota     
 **Quiero** asociar un regla de mantenimiento a un tipo de vehículo      
 **Para** que el sistema sepa qué condiciones de mantenimiento aplican a cada vehículo de la flota 
 
-Como QA analizo la historia de Usuario para colocar los criterios de aceptación
-El contexto de esta historia de usaurio es para la reutilizacion de reglas, una vez configurada, podemos aplicarlas para todos los vehiculos del mismo tipo
-Como actor tenemos al administrados
-Dificultad: **Pendiente hablar con Javier**
-Impacto Alto
-Regla : Siempre las reglas se asocian a tipos de vehiculos
-Depende de HU-07, HU-01
-Habilita a HU-06,HU-11
+## Análisis de Historia de Usuario (QA)
 
+### Contexto de la HU
+Esta historia de usuario se enfoca en la **reutilización de reglas de negocio**. Su propósito es permitir que, una vez configurada una regla, esta pueda aplicarse de manera masiva a todos los vehículos que pertenezcan al mismo tipo, optimizando la gestión y consistencia de los datos.
+
+### Metadatos
+* **Actor Principal:** Administrador
+* **Impacto en el Negocio:** Alto
+* **Dificultad:** Pendiente hablar con Javier
+* **Dependencia:** `HU-07`, `HU-01`
+* **Habilita a:** `HU-06`, `HU-11`
+
+### Reglas de Negocio (Criterios de Aceptación)
+1. **Asociación por Tipo:** El sistema debe obligar a que toda regla configurada esté asociada a un tipo de vehículo específico.
+2. **Herencia de Reglas:** Al crear o actualizar un vehículo (`HU-01`), el sistema debe asignarle automáticamente las reglas correspondientes a su tipo.
+3. **Validación de Aplicabilidad:** Cualquier cambio en las reglas de un tipo debe impactar a todos los vehículos vinculados, garantizando la integridad de las historias habilitadas (`HU-06`, `HU-11`).
+
+### Criterios de aceptación
+```gherkin
 Feature: Asociación regla a tipo de vehículo
-
+ 
   Scenario: Asociar regla a un tipo
     Given regla "Cambio de aceite" y tipo "Camioneta" existentes
     When el administrador los asocia
     Then todos los vehículos tipo "Camioneta" quedan sujetos a esa regla
 
+ 
   Scenario: Rechazar asociación duplicada
     Given regla ya asociada a "Camioneta"
     When intenta asociar la misma regla al mismo tipo
     Then rechaza indicando que ya existe esa vinculación
+```
 
 ## HU-11 Generar alerta automática por kilometraje
 
