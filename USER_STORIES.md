@@ -328,6 +328,14 @@ Feature: Registro de mantenimiento
 **Quiero** vincular el mantenimiento registrado a la regla que lo originó       
 **Para** que el sistema reinicie el contador y sepa cuándo volver a generar una alerta para ese vehículo.
 
+Como QA analizo la historia de Usuario para colocar los criterios de aceptación
+El contexto de esta historia de usuario es que podemos hacer el cierre del ciclo preventivo, lo que nos permite que nuestro sistema sea ciclico
+Como actor tenemos al admin
+Dificultad: **Pendiente hablar con Javier**
+Impacto: Alto
+Depende de HU-13
+Habilita a : es un nuevo ciclo de alertas
+
 ## HU-16 Registrar fecha y km del servicio
 
 **Como** administrador de flota     
