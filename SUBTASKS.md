@@ -149,6 +149,11 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 4. Exponer endpoint PATCH /api/maintenance/{id}/rule
 5. Retornar error claro si la regla no existe o no corresponde al tipo del vehículo
 
+### Rol: QA
+1. Automatizar 4 escenarios Gherkin (reseteo, sin alerta, resolver, cálculo)
+2. Verificar cálculo correcto del próximo servicio con datos controlados
+3. Prueba exploratoria: múltiples reglas activas para un vehículo
+
 ## HU-16 Registrar fecha y km del servicio
 
 ### Rol: DEV
@@ -156,3 +161,7 @@ Nota: estas validaciones se ejecutan dentro del endpoint POST /api/vehicles/{pla
 2. Verificar que el mileage_at_service no sea mayor al current_mileage actual del vehículo al momento del registro
 3. Verificar que el performed_at no sea una fecha futura
 4. Retornar error claro si el km del servicio supera el actual o si la fecha ingresada es futura
+
+### Rol QA
+1. Automatizar 3 escenarios Gherkin (válido, km mayor, fecha futura)
+2. Prueba exploratoria: servicio de hace 1 mes, verificar cálculos
