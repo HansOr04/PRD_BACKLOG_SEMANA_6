@@ -6,27 +6,40 @@
 1. Crear la tabla vehicle en la base de datos con campos: id, plate, brand, model, year, fuel_type, vin, status, current_mileage, vehicle_type_id
 2. Crear la tabla vehicle_type en la base de datos con campos: id, name, description
 3. Vincular vehicle con vehicle_type mediante llave foránea en vehicle_type_id
-4. Configurar DTOs de entrada (placa, marca, modelo, año, combustible, VIN, tipo) y de salida (datos del vehículo creado)
-5. Implementar validaciones: placa única, VIN de 17 caracteres, tipo obligatorio, estado inicial ACTIVE
+4. Definir los DTOs de entrada (placa, marca, modelo, año, combustible, VIN, tipo) y de salida (datos del vehículo creado)
+5. Verificar que la placa sea única, que el VIN tenga exactamente 17 caracteres, que el tipo sea obligatorio y que el estado inicial sea ACTIVE
 6. Exponer endpoint POST /api/vehicles
-7. Implementar manejo de errores: placa duplicada, VIN inválido, tipo no encontrado
+7. Retornar error claro si la placa ya existe, si el VIN es inválido o si el tipo de vehículo no fue encontrado
 
-### HU-04: Registrar y acumular kilometraje
+## HU-04: Registrar y acumular kilometraje
 
 ### Rol: DEV
-1. Crear tabla mileage_log en la base de datos con campos: id, vehicle_id, mileage_value, recorded_at, recorded_by
+1. Crear la tabla mileage_log en la base de datos con campos: id, vehicle_id, mileage_value, recorded_at, recorded_by
 2. Vincular mileage_log con vehicle mediante llave foránea en vehicle_id
-3. Configurar DTOs de entrada (placa, valor de km, conductor) y de salida (registro creado y km acumulado actualizado)
-4. Implementar lógica de acumulación: actualizar current_mileage en vehicle con el nuevo valor registrado
-5. Implementar asociación obligatoria del conductor en recorded_by
+3. Definir DTOs de entrada (placa, valor de km, conductor) y de salida (registro creado y current_mileage actualizado)
+4. Actualizar el current_mileage del vehículo cada vez que se registre un nuevo valor de km
+5. Asegurarse de que el conductor quede registrado en recorded_by, es un campo obligatorio
 6. Exponer endpoint POST /api/vehicles/{placa}/mileage
-7. Implementar manejo de errores: vehículo no encontrado, conductor no especificado
+7. Retornar error claro si el vehículo no existe o si el conductor no fue especificado
 
 ## HU-05 Validar coherencia del kilometraje
 
 ### Rol: DEV
-1. Implementar validación: mileage_value debe ser mayor a cero
-2. Implementar manejo del caso inicial: si el vehículo no tiene kilometraje previo, aceptar cualquier valor mayor a cero
-3. Implementar validación: mileage_value debe ser mayor al current_mileage actual del vehículo
-4. Implementar advertencia en respuesta si el incremento supera 2000 km respecto al último registro (no bloquea el guardado)
-5. Implementar manejo de errores: km negativo, km igual o menor al actual
+1. Verificar que el mileage_value ingresado sea mayor a cero
+2. Si el vehículo no tiene kilometraje previo, aceptar cualquier valor mayor a cero como primer registro
+3. Verificar que el mileage_value sea mayor al current_mileage actual del vehículo
+4. Avisar en la respuesta si el incremento supera 2000 km respecto al último registro, sin bloquear el guardado
+5. Retornar error claro si el km es negativo, igual o menor al actual
+
+## HU-06: Consultar estado de mantenimiento del vehículo
+
+### Rol: DEV
+1. Consultar las reglas de mantenimiento que aplican según el tipo del vehículo
+2. Comparar el kilometraje actual current_mileage, del vehículo contra el intervalo definido en cada regla
+3. Determinar el estado del vehículo según la comparación:
+   - AL_DIA: le faltan más km que el umbral para el próximo servicio
+   - PROXIMO: está dentro del rango de advertencia
+   - VENCIDO: ya superó el km límite definido en la regla
+4. Manejar el caso donde el vehículo no tiene reglas configuradas para su tipo
+5. Exponer endpoint GET /api/vehicles/{placa}/maintenance-status
+6. Retornar error claro si el vehículo no existe
