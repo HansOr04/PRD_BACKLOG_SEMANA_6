@@ -48,6 +48,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Prueba de rendimiento: registro toma < 30 segundos |
 
 ### HU-05: Validar coherencia del kilometraje
+> **Story Points:**  2 DEV + 2 QA = 4 SP
 
 > **Nota:** estas validaciones se ejecutan dentro del endpoint  POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
 
