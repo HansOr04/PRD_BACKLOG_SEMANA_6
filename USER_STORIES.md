@@ -97,7 +97,7 @@ Feature: Registro y acumulación de kilometraje
 
 
 ## HU-05 Validar coherencia del kilometraje
-`feature` `módulo: kilometraje` `priority: medium` `SP: 4` `role: DEV` `role: QA`
+`feature` `módulo: kilometraje` `priority: medium` `SP: 3` `role: DEV` `role: QA`
 >**Como** sistema     
 **Quiero** validar la coherencia del kilometraje ingresado por el conductor      
 **Para** evitar que datos incorrectos dañen el acumulado del vehículo y provoquen alertas equivocadas
@@ -350,7 +350,7 @@ Feature: Alerta automática por kilómetros
 ```
 
 ## HU-12 Consultar y clasificar alertas
-`feature` `módulo: alertas` `priority: medium` `SP: 4` `role: DEV` `role: QA`
+`feature` `módulo: alertas` `priority: medium` `SP: 3` `role: DEV` `role: QA`
 >**Como** administrador de flota o conductor     
 **Quiero** consultar las alertas activas que tiene un vehículo y poderlas clasificar según su estado      
 **Para** priorizar los mantenimientos más urgentes y mantener el vehículo al día y en operación
@@ -441,7 +441,7 @@ Feature: Registro de mantenimiento
 ```
 
 ## HU-14 Asociar mantenimiento a regla aplicada
-`feature` `módulo: historial` `priority: medium` `SP: 6` `role: DEV` `role: QA`
+`feature` `módulo: historial` `priority: medium` `SP: 5` `role: DEV` `role: QA`
 >**Como** administrador de flota     
 **Quiero** vincular el mantenimiento registrado a la regla que lo originó       
 **Para** que el sistema reinicie el contador y sepa cuándo volver a generar una alerta para ese vehículo.
@@ -491,7 +491,7 @@ Feature: Asociación a regla y reseteo de contador
 ```
 
 ## HU-16 Registrar fecha y km del servicio
-`feature` `módulo: historial` `priority: Medium` `SP: 4` `role: DEV` `role: QA`
+`feature` `módulo: historial` `priority: Medium` `SP: 3` `role: DEV` `role: QA`
 >**Como** administrador de flota     
 **Quiero** registrar la fecha y los kilometros que llevaba al momento del mantenimiento     
 **Para** que el sistema calcule correctamente cuándo debe generarse la próxima alerta

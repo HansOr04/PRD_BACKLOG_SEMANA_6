@@ -48,7 +48,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Prueba de rendimiento: registro toma < 30 segundos |
 
 ### HU-05: Validar coherencia del kilometraje
-> **Story Points:**  2 DEV + 2 QA = 4 SP
+> **Story Points:**  2 DEV + 1 QA = 3 SP
 
 > **Nota:** estas validaciones se ejecutan dentro del endpoint  POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
 
@@ -126,7 +126,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 4 | Prueba de borde: km exacto en umbral, vehículo sin reglas |
 
 ### HU-12: Consultar y clasificar alertas
-> **Story Points:**  2 DEV + 2 QA = 4 SP
+> **Story Points:**  2 DEV + 1 QA = 3 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -156,7 +156,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Verificar que la alerta cambia de estado correctamente al registrar el mantenimiento |
 
 ### HU-14: Asociar mantenimiento a regla aplicada
-> **Story Points:**  3 DEV + 3 QA = 6 SP
+> **Story Points:**  3 DEV + 2 QA = 5 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -170,7 +170,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 3 | Prueba exploratoria: múltiples reglas activas para un vehículo |
 
 ### HU-16: Registrar fecha y km del servicio
-> **Story Points:**  2 DEV + 2 QA = 4 SP
+> **Story Points:**  2 DEV + 1 QA = 3 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
