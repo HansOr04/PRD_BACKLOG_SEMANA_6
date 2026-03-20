@@ -139,6 +139,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Probar transiciones: PENDING → WARNING → OVERDUE → RESOLVED |
 
 ### HU-13: Registrar mantenimiento
+> **Story Points:**  5 DEV + 3 QA = 8 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
