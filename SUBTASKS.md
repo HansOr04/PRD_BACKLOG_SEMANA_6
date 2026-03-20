@@ -94,6 +94,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 3 | Prueba exploratoria: valores límite (intervalos muy altos/bajos) |
 
 ### HU-09: Asociar regla a tipo de vehículo
+> **Story Points:**  3 DEV + 2 QA = 5 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
