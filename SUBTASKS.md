@@ -78,6 +78,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 3 | Prueba exploratoria: vehículo con 5+ reglas de diferentes tipos |
 
 ### HU-07: Crear regla con tipo de mantenimiento
+> **Story Points:**  3 DEV + 2 QA = 5 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
