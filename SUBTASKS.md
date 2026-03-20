@@ -63,6 +63,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Automatizar 4 escenarios Gherkin |
 
 ### HU-06: Consultar estado de mantenimiento del vehículo
+> **Story Points:**  5 DEV + 3 QA = 8 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
