@@ -126,6 +126,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 4 | Prueba de borde: km exacto en umbral, vehículo sin reglas |
 
 ### HU-12: Consultar y clasificar alertas
+> **Story Points:**  2 DEV + 2 QA = 4 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
