@@ -11,10 +11,14 @@
 | DEV | Javier Luis | Colombia |
 
 ---
+```
+Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada Historia de Usuario del MVP, junto con su estimación en Story Points.
+```
 
-> Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada Historia de Usuario del MVP, junto con su estimación en Story Points.
+## Tasking 
 
-## HU-01: Registrar vehículo con tipo asociado
+### HU-01: Registrar vehículo con tipo asociado
+> **Story Points:**  5 DEV + 3 QA = 8 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -28,7 +32,7 @@
 | QA  | 1 | Diseñar matriz de datos: válidos, placa duplicada, VIN inválido, sin tipo |
 |     | 2 | Automatizar 4 escenarios Gherkin con Serenity BDD + RestAssured |
 
-## HU-04: Registrar y acumular kilometraje
+### HU-04: Registrar y acumular kilometraje
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -42,7 +46,7 @@
 | QA  | 1 | Automatizar 2 escenarios Gherkin (registro exitoso, asociación conductor) |
 |     | 2 | Prueba de rendimiento: registro toma < 30 segundos |
 
-## HU-05: Validar coherencia del kilometraje
+### HU-05: Validar coherencia del kilometraje
 
 > **Nota:** estas validaciones se ejecutan dentro del endpoint  POST /api/vehicles/{placa}/mileage de HU-04, no exponen un endpoint independiente.
 
@@ -56,7 +60,7 @@
 | QA  | 1 | Diseñar matriz de datos de borde: menor, negativo, igual, excesivo |
 |     | 2 | Automatizar 4 escenarios Gherkin |
 
-## HU-06: Consultar estado de mantenimiento del vehículo
+### HU-06: Consultar estado de mantenimiento del vehículo
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -70,7 +74,7 @@
 |     | 2 | Automatizar 4 escenarios Gherkin |
 |     | 3 | Prueba exploratoria: vehículo con 5+ reglas de diferentes tipos |
 
-## HU-07: Crear regla con tipo de mantenimiento
+### HU-07: Crear regla con tipo de mantenimiento
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -85,7 +89,7 @@
 |     | 2 | Automatizar 4 escenarios Gherkin |
 |     | 3 | Prueba exploratoria: valores límite (intervalos muy altos/bajos) |
 
-## HU-09: Asociar regla a tipo de vehículo
+### HU-09: Asociar regla a tipo de vehículo
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -99,7 +103,7 @@
 | QA  | 1 | Automatizar 3 escenarios Gherkin (uno, múltiples, duplicado) |
 |     | 2 | Verificar que la asociación se refleja correctamente en la evaluación de HU-06 y HU-11 |
 
-## HU-11: Generar alerta automática por kilometraje
+### HU-11: Generar alerta automática por kilometraje
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -115,7 +119,7 @@
 |     | 3 | Prueba exploratoria: km masivo, verificar no duplicación |
 |     | 4 | Prueba de borde: km exacto en umbral, vehículo sin reglas |
 
-## HU-12: Consultar y clasificar alertas
+### HU-12: Consultar y clasificar alertas
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -127,7 +131,7 @@
 | QA  | 1 | Automatizar 4 escenarios Gherkin (filtrar, listar, escalar, ocultar resueltas) |
 |     | 2 | Probar transiciones: PENDING → WARNING → OVERDUE → RESOLVED |
 
-## HU-13: Registrar mantenimiento
+### HU-13: Registrar mantenimiento
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -143,7 +147,7 @@
 | QA  | 1 | Automatizar 3 escenarios Gherkin (completo, sin tipo, resolver alerta) |
 |     | 2 | Verificar que la alerta cambia de estado correctamente al registrar el mantenimiento |
 
-## HU-14: Asociar mantenimiento a regla aplicada
+### HU-14: Asociar mantenimiento a regla aplicada
 
 | Rol | # | Tarea |
 |-----|---|-------|
@@ -156,7 +160,7 @@
 |     | 2 | Verificar cálculo correcto del próximo servicio con datos controlados |
 |     | 3 | Prueba exploratoria: múltiples reglas activas para un vehículo |
 
-## HU-16: Registrar fecha y km del servicio
+### HU-16: Registrar fecha y km del servicio
 
 | Rol | # | Tarea |
 |-----|---|-------|
