@@ -30,11 +30,11 @@ Rol Dev | Javier Luis | Colombia
 
 | Módulo | HU | SP |
 |--------|----|----|
-| Vehículos | HU-01 | 3 |
-| Kilometraje | HU-04, HU-05, HU-06 | 8 |
-| Reglas | HU-07, HU-09 | 8 |
-| Alertas | HU-11, HU-12 | 5 |
-| Historail | HU-13, HU-14, HU-16 | 8 |
+| Vehículos | HU-01 | 8 |
+| Kilometraje | HU-04, HU-05, HU-06 | 16 |
+| Reglas | HU-07, HU-09 | 10 |
+| Alertas | HU-11, HU-12 | 16 |
+| Historial | HU-13, HU-14, HU-16 | 18 |
 
 ## Convenciones de Commits 
 
