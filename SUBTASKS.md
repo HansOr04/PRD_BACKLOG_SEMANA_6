@@ -188,13 +188,13 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |---|---|---|---|---|---|---|
 | HU-01 | Registrar vehículo | 5 | 7 tareas, complejidad alta | 3 | 2 tareas, complejidad media | 8 |
 | HU-04 | Registrar kilometraje | 3 | 7 tareas, complejidad media | 2 | 2 tareas, complejidad baja | 5 |
-| HU-05 | Validar coherencia km | 2 | 5 tareas, complejidad baja | 2 | 2 tareas, complejidad media | 4 |
+| HU-05 | Validar coherencia km | 2 | 5 tareas, complejidad baja | 1 | 2 tareas, complejidad media | 3 |
 | HU-06 | Consultar estado mantenimiento | 5 | 6 tareas, complejidad alta | 3 | 3 tareas, complejidad media | 8 |
 | HU-07 | Crear regla | 3 | 7 tareas, complejidad media | 2 | 3 tareas, complejidad baja | 5 |
 | HU-09 | Asociar regla a tipo | 3 | 7 tareas, complejidad media | 2 | 2 tareas, complejidad baja | 5 |
 | HU-11 | Generar alerta automática | 8 | 7 tareas, complejidad muy alta | 5 | 4 tareas, complejidad alta | 13 |
-| HU-12 | Consultar alertas | 2 | 5 tareas, complejidad baja | 2 | 2 tareas, complejidad media | 4 |
+| HU-12 | Consultar alertas | 2 | 5 tareas, complejidad baja | 1 | 2 tareas, complejidad media | 3 |
 | HU-13 | Registrar mantenimiento | 5 | 9 tareas, complejidad alta | 3 | 2 tareas, complejidad media | 8 |
-| HU-14 | Asociar mantenimiento a regla | 3 | 5 tareas, complejidad media | 3 | 3 tareas, complejidad media | 6 |
-| HU-16 | Registrar fecha y km | 2 | 4 tareas, complejidad baja | 2 | 2 tareas, complejidad baja | 4 |
+| HU-14 | Asociar mantenimiento a regla | 3 | 5 tareas, complejidad media | 2 | 3 tareas, complejidad media | 5 |
+| HU-16 | Registrar fecha y km | 2 | 4 tareas, complejidad baja | 1 | 2 tareas, complejidad baja | 3 |
 ---
