@@ -33,6 +33,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Automatizar 4 escenarios Gherkin con Serenity BDD + RestAssured |
 
 ### HU-04: Registrar y acumular kilometraje
+> **Story Points:**  3 DEV + 2 QA = 5 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
