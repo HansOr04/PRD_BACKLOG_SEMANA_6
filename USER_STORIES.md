@@ -5,7 +5,7 @@
 ## Módulo 1: Gestión de Vehículos
 
 ## HU-01: Registrar vehículo con tipo asociado
-`feature` `módulo: vehículos` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: vehículos` `priority: high` `SP: 8` `role: DEV` `role: QA`
 >**Como** administrador de flota
 **Quiero** registrar un nuevo vehículo indicando su placa, marca, modelo, tipo combustible y tipo de vehículo       
 **Para** centralizar mi flota con la clasificación necesaria para aplicar reglas de mantenimiento.
@@ -18,7 +18,7 @@ Este es el **punto de entrada del sistema**; sin vehículos no existe flujo oper
 ### **Metadatos**
 * **Actor Principal:** Administrador
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** *Pendiente revisar con Javier*
+* **Dificultad:** Alta
 * **Dependencia:** Ninguna (Es la HU inicial)
 * **Habilita a:** `HU-04`, `HU-06`, `HU-11`, `HU-13`
 
@@ -55,7 +55,7 @@ Feature: Registro de vehículo con tipo asociado
 ## Módulo 2: Registro de Kilometraje
 
 ## HU-04 Registrar y acumular kilometraje
-`feature` `módulo: kilometraje` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: kilometraje` `priority: medium` `SP: 5` `role: DEV` `role: QA`
 >**Como** conductor     
 **Quiero** registrar el kilometraje marcado en el odómetro de mi vehículo al terminar mi recorrido      
 **Para** que el sistema mantenga el acumulado al día y pueda detectar cuando requiere mantenimiento.
@@ -70,7 +70,7 @@ Representa la **acción más frecuente del sistema**. Es crítica para el módul
 ### **Metadatos**
 * **Actor Principal:** Conductor
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** *Pendiente hablar con Javier*
+* **Dificultad:** Media
 * **Dependencia:** `HU-01`
 * **Habilita a:** `HU-05`, `HU-06`, `HU-11`
 
@@ -97,7 +97,7 @@ Feature: Registro y acumulación de kilometraje
 
 
 ## HU-05 Validar coherencia del kilometraje
-`feature` `módulo: kilometraje` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: kilometraje` `priority: medium` `SP: 4` `role: DEV` `role: QA`
 >**Como** sistema     
 **Quiero** validar la coherencia del kilometraje ingresado por el conductor      
 **Para** evitar que datos incorrectos dañen el acumulado del vehículo y provoquen alertas equivocadas
@@ -112,7 +112,7 @@ Esta historia de usuario se desglosa de la anterior debido a su **lógica de val
 ### Metadatos
 * **Actor Principal:** Sistema
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Media
 * **Dependencia:** `HU-04`
 * **Habilita a:** Integridad de `HU-06` y `HU-11`
 
