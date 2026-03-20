@@ -109,6 +109,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Verificar que la asociación se refleja correctamente en la evaluación de HU-06 y HU-11 |
 
 ### HU-11: Generar alerta automática por kilometraje
+> **Story Points:**  8 DEV + 5 QA = 13 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
