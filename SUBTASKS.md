@@ -170,6 +170,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 3 | Prueba exploratoria: múltiples reglas activas para un vehículo |
 
 ### HU-16: Registrar fecha y km del servicio
+> **Story Points:**  2 DEV + 2 QA = 4 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
