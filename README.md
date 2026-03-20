@@ -9,6 +9,14 @@ Este repositorio contiene un sistema para registrar kilometraje vehicular y aler
 Rol QA | Hans Alazar Ortiz Bailon | Ecuador     
 Rol Dev | Javier Luis | Colombia
 
+## Análisis de User Stories
+
+Realizamos un **User Story Mapping** en Miro para analizar todas las historias de usuario que podrían ser relevantes para el sistema. En total identificamos **16 HU**, pero tras un análisis de tiempos y priorización las redujimos a **11 HU para el MVP**.
+
+En el tablero se pueden ver las historias seleccionadas, las descartadas y el contexto y criterios de aceptación que logramos extraer de cada una.
+
+🔗 [Ver tablero Miro — User Story Mapping](https://miro.com/app/board/uXjVGwrNHh0=/?share_link_id=821967920981)
+
 ## Actores 
 
 | Actor | HU |
@@ -24,7 +32,7 @@ Rol Dev | Javier Luis | Colombia
 | PRD.md | Visión, alcance MVP, riesgos |
 | USER_STORIES.md | 11 HU + Gherkin = Story Points |
 | SUBTASKS.md | Tasking DEV + QA por HU |
-| [Tablero Github Porjects](https://github.com/users/HansOr04/projects/1) | Board público |
+| [Tablero Github Projects](https://github.com/users/HansOr04/projects/1) | Board público |
 
 ## MVP - 11 HU / 32 SP
 
@@ -37,7 +45,6 @@ Rol Dev | Javier Luis | Colombia
 | Historial | HU-13, HU-14, HU-16 | 18 |
 
 ## Convenciones de Commits 
-
 ```
 feat(prd): add vision and objectives
 feat(backlog): add HU-01 vehicle registration
