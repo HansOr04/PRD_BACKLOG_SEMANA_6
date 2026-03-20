@@ -156,6 +156,7 @@ Este documento desglosa las tareas técnicas (DEV) y de calidad (QA) para cada H
 |     | 2 | Verificar que la alerta cambia de estado correctamente al registrar el mantenimiento |
 
 ### HU-14: Asociar mantenimiento a regla aplicada
+> **Story Points:**  3 DEV + 3 QA = 6 SP
 
 | Rol | # | Tarea |
 |-----|---|-------|
