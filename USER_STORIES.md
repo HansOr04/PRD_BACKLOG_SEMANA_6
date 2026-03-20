@@ -148,7 +148,7 @@ Feature: Validación de coherencia del kilometraje
 
 
 ## HU-06 Consultar estado de mantenimiento del vehículo
-`feature` `módulo: kilometraje` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: kilometraje` `priority: high` `SP: 8` `role: DEV` `role: QA`
 >**Como** administrador de flota o conductor     
 **Quiero** consultar si existen mantenimientos pendientes del vehículo      
 **Para** tomar acciones oportunas antes de que se venza el límite definido en la regla
@@ -162,7 +162,7 @@ Esta historia de usuario responde a la necesidad de implementar una **consulta a
 ### Metadatos
 * **Actores Principales:** Administrador / Conductor
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Alta
 * **Dependencias:** `HU-01`, `HU-04`, `HU-07` + `HU-09`
 * **Habilita a:** Complementa la funcionalidad de `HU-11`
 
@@ -205,7 +205,7 @@ Feature: Evaluación de estado de mantenimiento
 ## Módulo 3: Reglas de Mantenimiento
 
 ### HU-07 Crear regla con tipo de mantenimiento
-`feature` `módulo: reglas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: reglas` `priority: media` `SP: 5` `role: DEV` `role: QA`
 
 >**Como** administrador de flota     
 **Quiero** crear una regla de mantenimiento preventivo indicando el tipo de mantenimiento y el intervalo de kilometros en que debe realizarse      
@@ -221,7 +221,7 @@ Esta historia de usuario representa el núcleo del sistema. Define la configurac
 ### Metadatos
 * **Actor Principal:** Administrador
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Media
 * **Dependencia:** Ninguna
 * **Habilita a:** `HU-09`, `HU-06`, `HU-11`, `HU-14`
 
@@ -254,7 +254,7 @@ Feature: Creación de regla de mantenimiento
 ```
 
 ## HU-09 Asociar regla a tipo de vehículo
-`feature` `módulo: reglas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: reglas` `priority: medium` `SP: 5` `role: DEV` `role: QA`
 
 >**Como** administrador de flota     
 **Quiero** asociar un regla de mantenimiento a un tipo de vehículo      
@@ -268,7 +268,7 @@ Esta historia de usuario se enfoca en la **reutilización de reglas de negocio**
 ### Metadatos
 * **Actor Principal:** Administrador
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Media
 * **Dependencia:** `HU-07`, `HU-01`
 * **Habilita a:** `HU-06`, `HU-11`
 
@@ -295,7 +295,7 @@ Feature: Asociación regla a tipo de vehículo
 ## Módulo 4: Alertas de Mantenimiento
 
 ## HU-11 Generar alerta automática por kilometraje
-`feature` `módulo: alertas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: alertas` `priority: High` `SP: 13` `role: DEV` `role: QA`
 >**Como** sistema     
 **Quiero** generar una alerta automática cuando el kilometraje total de un vehículo alcance el límite definido de una regla      
 **Para** notificar oportunamente que ese vehículo requiere mantenimiento
@@ -309,7 +309,7 @@ Esta historia de usuario representa el núcleo del valor del producto. Su implem
 ### Metadatos
 * **Actor Principal:** Sistema
 * **Impacto en el Negocio:** Crítico
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Alta
 * **Dependencias:** `HU-01`, `HU-04`, `HU-07` + `HU-09`
 * **Habilita a:** `HU-12`
 
@@ -350,7 +350,7 @@ Feature: Alerta automática por kilómetros
 ```
 
 ## HU-12 Consultar y clasificar alertas
-`feature` `módulo: alertas` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: alertas` `priority: medium` `SP: 4` `role: DEV` `role: QA`
 >**Como** administrador de flota o conductor     
 **Quiero** consultar las alertas activas que tiene un vehículo y poderlas clasificar según su estado      
 **Para** priorizar los mantenimientos más urgentes y mantener el vehículo al día y en operación
@@ -363,7 +363,7 @@ Esta historia de usuario tiene como objetivo proporcionar una clasificación vis
 ### Metadatos
 * **Actor Principal:** Administrador
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Alta
 * **Dependencia:** `HU-11`
 * **Habilita a:** `HU-13`
 
@@ -399,7 +399,7 @@ Feature: Consulta y clasificación de alertas
 ```
 ## Módulo 5: Historial de Mantenimientos
 ## HU-13 Registrar mantenimiento
-`feature` `módulo: historial` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: historial` `priority: Alta` `SP: 8` `role: DEV` `role: QA`
 >**Como** administrador de flota     
 **Quiero** registrar que un mantenimiento fue realizado sobre un vehículo       
 **Para** dejar constancia del mantenimiento y cerrar la alerta generada
@@ -412,7 +412,7 @@ Esta historia de usuario es crítica para el cierre del ciclo de mantenimiento. 
 ### Metadatos
 * **Actor Principal:** Administrador
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Alta
 * **Dependencias:** `HU-01` y `HU-12`
 * **Habilita a:** `HU-14` y `HU-16`
 
@@ -441,7 +441,7 @@ Feature: Registro de mantenimiento
 ```
 
 ## HU-14 Asociar mantenimiento a regla aplicada
-`feature` `módulo: historial` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: historial` `priority: medium` `SP: 6` `role: DEV` `role: QA`
 >**Como** administrador de flota     
 **Quiero** vincular el mantenimiento registrado a la regla que lo originó       
 **Para** que el sistema reinicie el contador y sepa cuándo volver a generar una alerta para ese vehículo.
@@ -455,7 +455,7 @@ Esta historia de usuario representa la finalización y el reinicio del flujo ope
 ### Metadatos
 * **Actor Principal:** Administrador
 * **Impacto en el Negocio:** Alto
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Media
 * **Dependencia:** `HU-13`
 * **Habilita a:** Generación de un nuevo ciclo de alertas
 
@@ -491,7 +491,7 @@ Feature: Asociación a regla y reseteo de contador
 ```
 
 ## HU-16 Registrar fecha y km del servicio
-`feature` `módulo: historial` `priority: ?` `SP: ?` `role: DEV` `role: QA`
+`feature` `módulo: historial` `priority: Medium` `SP: 4` `role: DEV` `role: QA`
 >**Como** administrador de flota     
 **Quiero** registrar la fecha y los kilometros que llevaba al momento del mantenimiento     
 **Para** que el sistema calcule correctamente cuándo debe generarse la próxima alerta
@@ -504,7 +504,7 @@ Esta historia de usuario aborda la **desincronización temporal** de los datos. 
 ### Metadatos
 * **Actor Principal:** Administrador
 * **Impacto en el Negocio:** Medio
-* **Dificultad:** Pendiente hablar con Javier
+* **Dificultad:** Media
 * **Dependencia:** `HU-13`
 * **Habilita a:** `HU-14`
 
