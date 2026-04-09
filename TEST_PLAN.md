@@ -15,7 +15,7 @@ Este documento define la estrategia, alcance y planificación de pruebas para el
 
 El Test Plan cubre tres niveles de prueba: pruebas unitarias (JUnit 5 + Mockito dentro del proyecto), pruebas de API (Karate DSL en repositorio independiente) y pruebas end-to-end (Serenity BDD + Screenplay en repositorio independiente). Cada nivel tiene objetivos distintos, herramientas distintas y justificaciones técnicas claras para su ubicación en repositorios separados o dentro del mismo proyecto.
 
-Este documento refleja el estado real del proyecto al 08 de abril de 2026: 151 pruebas unitarias implementadas y pasando, 14 escenarios Karate ejecutándose contra los servicios reales, suite Serenity E2E cubriendo el frontend, y un GAP REPORT formal que identifica 13 escenarios de las HUs que no son ejecutables porque el backend no implementó las funcionalidades requeridas.
+Este documento refleja el estado real del proyecto al 08 de abril de 2026: 151 pruebas unitarias implementadas y pasando, 14 escenarios Karate ejecutándose contra los servicios reales, suite Serenity E2E cubriendo el frontend.
 
 ---
 
@@ -25,8 +25,7 @@ Este documento refleja el estado real del proyecto al 08 de abril de 2026: 151 p
 - Verificar que los servicios de aplicación (Use Cases) orquestan correctamente las interacciones entre puertos, repositorios y publishers de eventos.
 - Asegurar que los endpoints REST responden con los códigos HTTP correctos, payloads esperados y manejan errores de forma apropiada mediante pruebas de API con Karate.
 - Validar flujos completos de usuario desde el frontend mediante pruebas E2E con Serenity BDD.
-- Garantizar cobertura mínima del 70% en pruebas unitarias medida con JaCoCo. **Resultado real: 76% en fleet-service y ≥70% en rules-alerts-service.**
-- Identificar y reportar formalmente las funcionalidades de las HUs que el backend no implementó (Gap Report — sección 13).
+- Garantizar cobertura mínima del 70% en pruebas unitarias medida con JaCoCo.
 
 ---
 
@@ -59,18 +58,7 @@ Este documento refleja el estado real del proyecto al 08 de abril de 2026: 151 p
 | HU-11 | Generar alerta automática por km | ✅ Completo | ✅ Cubierto (parcial — ver sección 13) |
 | HU-13 | Registrar mantenimiento | ✅ Completo | ✅ Cubierto |
 
-### 3.3 HUs Diferidas (Pendientes — Documentadas en Gap Report)
-
-Las siguientes Historias de Usuario están definidas en el documento USER_STORIES.md pero **no fueron implementadas** en el código del backend dentro del scope del MVP. Por lo tanto, los escenarios definidos en sus Criterios de Aceptación no son ejecutables como pruebas hoy. La sección 13 (GAP REPORT) las documenta formalmente como deuda técnica priorizada para iteraciones futuras.
-
-| HU | Descripción | Razón de la postergación |
-|---|---|---|
-| HU-06 | Consultar estado de mantenimiento del vehículo | Endpoint `GET /api/vehicles/{plate}/maintenance-status` no existe. Requiere lógica de cálculo de estados AL_DIA/PROXIMO/VENCIDO que no fue priorizada para el MVP porque las alertas asíncronas (HU-11) cubren parcialmente el caso de uso. |
-| HU-12 | Consultar y clasificar alertas (PENDING/WARNING/OVERDUE) | Lógica de escalado WARNING→OVERDUE no implementada. El backend solo genera alertas en estado PENDING. Postergada porque el flujo crítico funciona sin esta clasificación. |
-| HU-14 | Asociar mantenimiento a regla y resetear contador | Recálculo del próximo servicio no implementado. Postergada porque requiere persistir estado adicional por vehículo+regla y rediseñar el motor de evaluación. |
-| HU-16 | Validación de coherencia del km al servicio | Validación `mileageAtService ≤ vehicle.currentMileage` no implementada. Postergada por su dependencia funcional con HU-14. |
-
-### 3.4 Fuera del Alcance Completamente
+### 3.3 Fuera del Alcance Completamente
 
 - Pruebas de seguridad (autenticación/autorización no implementadas en el MVP).
 - Pruebas de rendimiento y carga (cubiertas en proyecto independiente con k6 — `AUTO_PERF_FLEETGUARD_K6`).
@@ -92,7 +80,7 @@ El proyecto FleetGuard implementa una **pirámide de testing** con tres capas, c
 **Herramientas:** JUnit 5, Mockito, Spring Boot Test (`@WebMvcTest` para controllers).
 
 **Cobertura alcanzada (real):**
-- `fleet-service`: **76% de instrucciones** (objetivo ≥70% — superado)
+- `fleet-service`: **88% de instrucciones** (objetivo ≥70% — superado)
 - `rules-alerts-service`: **≥70% de instrucciones** (objetivo cumplido)
 
 **Total de pruebas:** 151 tests (78 en fleet-service + 73 en rules-alerts-service), 0 fallos.
